@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110193408) do
+ActiveRecord::Schema.define(version: 20180121151640) do
+
 
   create_table "auteurs", force: :cascade do |t|
     t.string "first_name"
@@ -24,11 +25,7 @@ ActiveRecord::Schema.define(version: 20180110193408) do
     t.string "description"
   end
 
-  create_table "mangas", force: :cascade do |t|
-    t.string "title"
-    t.string "title_traduction"
-    t.date "realise_date"
-    t.integer "tome_number"
-  end
+# Could not dump table "mangas" because of following StandardError
+#   Unknown type 'String' for column 'genre_name'
 
 end

@@ -1,6 +1,7 @@
 class MangasController < ApplicationController
 	def index
 		@mangas = Manga.all
+		@genre = Genre.all
 	end
 
 	def show
@@ -10,7 +11,10 @@ class MangasController < ApplicationController
 		@manga = Manga.new
 	end
 	def create
-		@manga = Manga.new()
+
+		@manga = Manga.new(manga_params)
+		@genre = Gnere.new(genre_params)
+
 		if @manga.save
 			redirect_to(@manga)
 		else
