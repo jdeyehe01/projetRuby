@@ -1,0 +1,2582 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (27.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMangas (20180110153400)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "mangas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "title_traduction" varchar, "realise_date" date, "tome_number" integer)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110153400"]]
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (12.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-01-10 15:35:30.312680"], ["updated_at", "2018-01-10 15:35:30.312680"]]
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGenres (20180110155127)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "genres" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "description" varchar)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110155127"]]
+  [1m[35m (32.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAuteurs (20180110155344)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "auteurs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "birthday" date)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110155344"]]
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-01-10 17:07:05 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant HomeController):
+  
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-01-10 17:08:39 +0100
+  
+ActionController::RoutingError (uninitialized constant HomeController):
+  
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/genres" for 127.0.0.1 at 2018-01-10 17:10:43 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/genres"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/genress" for 127.0.0.1 at 2018-01-10 17:10:48 +0100
+  
+LoadError (Unable to autoload constant GenressController, expected /home/glados/Manga/app/controllers/genress_controller.rb to define it):
+  
+activesupport (5.1.4) lib/active_support/dependencies.rb:511:in `load_missing_constant'
+activesupport (5.1.4) lib/active_support/dependencies.rb:202:in `const_missing'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `constantize'
+activesupport (5.1.4) lib/active_support/dependencies.rb:582:in `get'
+activesupport (5.1.4) lib/active_support/dependencies.rb:613:in `constantize'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.4) lib/action_dispatch/http/parameters.rb:99:in `binary_params_for?'
+actionpack (5.1.4) lib/action_dispatch/http/parameters.rb:90:in `set_binary_encoding'
+actionpack (5.1.4) lib/action_dispatch/http/parameters.rb:67:in `path_parameters='
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/genress" for 127.0.0.1 at 2018-01-10 17:12:42 +0100
+  
+LoadError (Unable to autoload constant GenressController, expected /home/glados/Manga/app/controllers/genress_controller.rb to define it):
+  
+activesupport (5.1.4) lib/active_support/dependencies.rb:511:in `load_missing_constant'
+activesupport (5.1.4) lib/active_support/dependencies.rb:202:in `const_missing'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `constantize'
+activesupport (5.1.4) lib/active_support/dependencies.rb:582:in `get'
+activesupport (5.1.4) lib/active_support/dependencies.rb:613:in `constantize'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.4) lib/action_dispatch/http/parameters.rb:99:in `binary_params_for?'
+actionpack (5.1.4) lib/action_dispatch/http/parameters.rb:90:in `set_binary_encoding'
+actionpack (5.1.4) lib/action_dispatch/http/parameters.rb:67:in `path_parameters='
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/mangas" for 127.0.0.1 at 2018-01-10 17:23:42 +0100
+Processing by MangasController#index as HTML
+Completed 500 Internal Server Error in 3ms
+
+
+  
+NoMethodError (undefined method `all' for Manga:Module):
+  
+app/controllers/mangas_controller.rb:3:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (48.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMangas (20180110153400)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "mangas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "title_traduction" varchar, "realise_date" date, "tome_number" integer)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110153400"]]
+  [1m[35m (15.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateGenres (20180110155127)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "genres" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "description" varchar)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110155127"]]
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAuteurs (20180110155344)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "auteurs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "birthday" date)[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110155344"]]
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-01-10 16:27:44.864153"], ["updated_at", "2018-01-10 16:27:44.864153"]]
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateManga (20180110153400)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "mangas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "title_traduction" varchar, "realise_date" date, "tome_number" integer)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110153400"]]
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateGenres (20180110155127)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "genres" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "description" varchar)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110155127"]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAuteurs (20180110155344)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "auteurs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "birthday" date)[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110155344"]]
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (7.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-01-10 16:28:14.389308"], ["updated_at", "2018-01-10 16:28:14.389308"]]
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAuteur (20180110190701)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "auteurs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "birthday" date)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAuteur (20180110190856)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "auteurs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "birthday" date)[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGenre (20180110192053)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "genres" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "description" varchar)[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGenre (20180110192053)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "genres" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "description" varchar)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGenre (20180110193358)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "genres" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "description" varchar)[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (120.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateManga (20180110153400)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "mangas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "title_traduction" varchar, "realise_date" date, "tome_number" integer)[0m
+  [1m[35mSQL (4.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110153400"]]
+  [1m[35m (15.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateGenre (20180110193358)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "genres" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "description" varchar)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110193358"]]
+  [1m[35m (9.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAuteur (20180110193408)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "auteurs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "birthday" date)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110193408"]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-01-10 19:34:53.156787"], ["updated_at", "2018-01-10 19:34:53.156787"]]
+  [1m[35m (116.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-01-10 23:15:37 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant HomeController):
+  
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/mangas" for 127.0.0.1 at 2018-01-10 23:15:52 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (4.1ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 389ms (Views: 375.1ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-01-10 23:17:53 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (23.5ms)[0m  [1m[32mINSERT INTO "mangas" ("title", "title_traduction", "realise_date", "tome_number") VALUES (?, ?, ?, ?)[0m  [["title", "ナルト"], ["title_traduction", "Naruto"], ["realise_date", "1999-10-04"], ["tome_number", 72]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "mangas" ("title", "title_traduction", "realise_date", "tome_number") VALUES (?, ?, ?, ?)[0m  [["title", "ナルト"], ["title_traduction", "Naruto"], ["realise_date", "1999-10-04"], ["tome_number", 72]]
+  [1m[35m (19.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/mangas" for 127.0.0.1 at 2018-01-10 23:30:08 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (38.4ms)
+Completed 200 OK in 509ms (Views: 487.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/mangas/1" for 127.0.0.1 at 2018-01-10 23:30:16 +0100
+Processing by MangasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" WHERE "mangas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 77ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionController::UnknownFormat (MangasController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/mangas" for 127.0.0.1 at 2018-01-10 23:30:29 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 46ms (Views: 44.4ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/mangas/1" for 127.0.0.1 at 2018-01-10 23:30:34 +0100
+Processing by MangasController#destroy as HTML
+  Parameters: {"authenticity_token"=>"iCtTxiw2eqax5efyWGOF74kc9q4cb3V5aKlTRKaiizWycdca1Ls461uhQEi8xtTiXvYvGTBqioChxndcoGQkrQ==", "id"=>"1"}
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" WHERE "mangas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[31mDELETE FROM "mangas" WHERE "mangas"."id" = ?[0m  [["id", 1]]
+  [1m[35m (27.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/mangas
+Completed 302 Found in 38ms (ActiveRecord: 29.0ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-01-10 23:30:34 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 26ms (Views: 25.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-01-10 23:30:37 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 40ms (Views: 39.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-01-15 22:37:12 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.1ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 192ms (Views: 184.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 22:37:18 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 42ms (Views: 37.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 22:57:24 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (143.3ms)
+Completed 500 Internal Server Error in 153ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `manga' for #<#<Class:0x00007f4a7497c410>:0x00007f4a7498deb8>
+Did you mean?  manga_url):
+     9: 	<tbody>
+    10: 		<% @genres.each do |genre| %>
+    11: 			<tr>
+    12: 				<td><%= manga.name%></td>
+    13: 				<td><%= manga.age %></td>
+    14: 				<td><%= manga.description %></td>
+    15: 				<td><%= link_to 'Afficher', manga %></td>
+  
+app/views/genres/index.html.erb:12:in `block in _app_views_genres_index_html_erb___1196250582552744116_69978880207100'
+app/views/genres/index.html.erb:10:in `_app_views_genres_index_html_erb___1196250582552744116_69978880207100'
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 22:57:52 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 138ms (Views: 136.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 23:03:58 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/genres/1" for 127.0.0.1 at 2018-01-15 23:04:15 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 17ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::UnknownFormat (GenresController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 23:04:24 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres/1" for 127.0.0.1 at 2018-01-15 23:09:06 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 20ms (Views: 17.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/genres/2" for 127.0.0.1 at 2018-01-15 23:09:20 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.5ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/genres/1" for 127.0.0.1 at 2018-01-15 23:09:26 +0100
+Processing by GenresController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QPwCinNMoGc13GNUWbH7p4nXadWIa6UhwitEAXOppgTHiszoXec0FxtJrwbb7UakrzSRCJ650brJ1uYxyR9QYg==", "id"=>"1"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "genres" WHERE "genres"."id" = ?[0m  [["id", 1]]
+  [1m[35m (62.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/genres
+Completed 302 Found in 70ms (ActiveRecord: 64.8ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 23:09:26 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 32ms (Views: 28.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/genres/2" for 127.0.0.1 at 2018-01-15 23:09:28 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 23:22:54 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (9.6ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `stringify_keys' for "/genres/2/edit":String):
+    14: 				<td><%= genre.description %></td>
+    15: 				<td><%= link_to 'Afficher', genre %></td>
+    16: 				<td><%= link_to 'Supprimer', genre, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %></td>
+    17: 				<td><%= link_to 'Editer', genre , edit_genre_path(genre)%></td>
+    18: 			</tr>
+    19: 		<% end %>
+    20: 	</tbody>
+  
+app/views/genres/index.html.erb:17:in `block in _app_views_genres_index_html_erb__1627740346075943656_47254475630680'
+app/views/genres/index.html.erb:10:in `_app_views_genres_index_html_erb__1627740346075943656_47254475630680'
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 23:23:14 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (165.9ms)
+Completed 500 Internal Server Error in 174ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_genre' for #<#<Class:0x00007ff078a1bc68>:0x00007ff0786d30b0>
+Did you mean?  new_genre_url):
+    21: </table>
+    22: 
+    23: <p>
+    24: 	<%= link_to 'Ajouter un genre' , new_genre %>
+    25: 
+    26: </p>
+  
+app/views/genres/index.html.erb:24:in `_app_views_genres_index_html_erb__1627740346075943656_70335394651540'
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 23:23:27 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 134ms (Views: 131.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-15 23:23:32 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (0.8ms)
+  Rendered genres/new.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/jano/MangaProject/app/views/genres/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+rm.label :age, 'Tranche d'âge );@output_buffer.safe_append=
+                              ^):
+  
+app/views/genres/_form.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/genres/new.html.erb:3:in `_app_views_genres_new_html_erb__3276266838163196827_70335336305320'
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-15 23:24:17 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (10.5ms)
+  Rendered genres/new.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 36ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2018-01-15 23:25:59 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K3zogbOdATgMDxbnZxQGMrtg7IrXGvN6AL6oWIqoi/msCibjnTaVSCKa2rXlSLsxnYMUV8HIh+ELQwpoMB59nw==", "genre"=>{"name"=>"Josei", "age"=>"10 ans - 15 ans", "description"=>"C’est le pendant féminin du seinen. On l’appelle également «ladies comic». Les intrigues y sont plus complexes que dans le shojo. Les relations amoureuses, la séduction et les relations sexuelles sont souvent les sujets principaux de ces récits, tout comme les préoccupations des jeunes femmes modernes tels que le célibat, le travail, le partenaire idéal. "}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 110ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007ff071a1c110>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:13:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-15 23:26:02 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K3zogbOdATgMDxbnZxQGMrtg7IrXGvN6AL6oWIqoi/msCibjnTaVSCKa2rXlSLsxnYMUV8HIh+ELQwpoMB59nw==", "genre"=>{"name"=>"Josei", "age"=>"10 ans - 15 ans", "description"=>"C’est le pendant féminin du seinen. On l’appelle également «ladies comic». Les intrigues y sont plus complexes que dans le shojo. Les relations amoureuses, la séduction et les relations sexuelles sont souvent les sujets principaux de ces récits, tout comme les préoccupations des jeunes femmes modernes tels que le célibat, le travail, le partenaire idéal. "}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007ff0706b27f0>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:13:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-15 23:26:03 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K3zogbOdATgMDxbnZxQGMrtg7IrXGvN6AL6oWIqoi/msCibjnTaVSCKa2rXlSLsxnYMUV8HIh+ELQwpoMB59nw==", "genre"=>{"name"=>"Josei", "age"=>"10 ans - 15 ans", "description"=>"C’est le pendant féminin du seinen. On l’appelle également «ladies comic». Les intrigues y sont plus complexes que dans le shojo. Les relations amoureuses, la séduction et les relations sexuelles sont souvent les sujets principaux de ces récits, tout comme les préoccupations des jeunes femmes modernes tels que le célibat, le travail, le partenaire idéal. "}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007ff071bef668>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:13:in `create'
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-15 23:28:45 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (1.4ms)
+  Rendered genres/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2018-01-15 23:28:48 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZYAQsdRm1YNt3c3J2YckVVjgMLsredwxLgcFGXqiEozi9t7T+s1B80NIAZtb25lWfgPIZj2rqKol+qcpwBTk6g==", "genre"=>{"name"=>"Josei", "age"=>"10 ans - 15 ans", "description"=>"C’est le pendant féminin du seinen. On l’appelle également «ladies comic». Les intrigues y sont plus complexes que dans le shojo. Les relations amoureuses, la séduction et les relations sexuelles sont souvent les sujets principaux de ces récits, tout comme les préoccupations des jeunes femmes modernes tels que le célibat, le travail, le partenaire idéal. "}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 137ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x000055f4946c0708>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:13:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-15 23:28:48 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZYAQsdRm1YNt3c3J2YckVVjgMLsredwxLgcFGXqiEozi9t7T+s1B80NIAZtb25lWfgPIZj2rqKol+qcpwBTk6g==", "genre"=>{"name"=>"Josei", "age"=>"10 ans - 15 ans", "description"=>"C’est le pendant féminin du seinen. On l’appelle également «ladies comic». Les intrigues y sont plus complexes que dans le shojo. Les relations amoureuses, la séduction et les relations sexuelles sont souvent les sujets principaux de ces récits, tout comme les préoccupations des jeunes femmes modernes tels que le célibat, le travail, le partenaire idéal. "}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007ff071c230f8>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:13:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-15 23:28:49 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZYAQsdRm1YNt3c3J2YckVVjgMLsredwxLgcFGXqiEozi9t7T+s1B80NIAZtb25lWfgPIZj2rqKol+qcpwBTk6g==", "genre"=>{"name"=>"Josei", "age"=>"10 ans - 15 ans", "description"=>"C’est le pendant féminin du seinen. On l’appelle également «ladies comic». Les intrigues y sont plus complexes que dans le shojo. Les relations amoureuses, la séduction et les relations sexuelles sont souvent les sujets principaux de ces récits, tout comme les préoccupations des jeunes femmes modernes tels que le célibat, le travail, le partenaire idéal. "}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007ff07158e490>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:13:in `create'
+Started GET "/pokemons/new" for 127.0.0.1 at 2018-01-15 23:33:39 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/pokemons/new"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 23:33:44 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 104ms (Views: 97.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/genres/2/edit" for 127.0.0.1 at 2018-01-15 23:33:51 +0100
+Processing by GenresController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering genres/edit.html.erb within layouts/application
+  Rendered genres/_form.html.erb (3.5ms)
+  Rendered genres/edit.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 31ms (Views: 21.9ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/genres/2" for 127.0.0.1 at 2018-01-15 23:33:57 +0100
+Processing by GenresController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mNi3Bu17bnpRzmkkiEmBJtkI5rkOVlv+Kw1bTQDZ47MyefMRlIcMZ/GnEEemG+Dn0ZBLI1/iMKY3q13CGS0HKg==", "genre"=>{"name"=>"Shôjo", "age"=>"10", "description"=>"le terme Shôjo signifie \"jeune fille\" en japonais. Les mangas de ce type sont destinés à un public féminin plutôt jeune. Les histoires abordent des sujets variés, touchant à la vie quotidienne du personnage principal, avec bien entendu, une histoire d’amour. Même si cela peut paraître cliché, ces mangas pour jeune fille ont tous ce point en commun, une histoire de romance avec des héroïnes qui sont presque toujours lycéennes. On pourra citer comme exemples Fruit Basket, Kamisama Hajimemashita, ou encore Clannad. Si vous souhaitez regarder une histoire d’amour, ou quelque chose de léger et rafraichissant, vous pouvez puiser dans les shôjos, ils sont souvent bien plus différents les uns des autres que les shônens."}, "commit"=>"Enregistrer", "id"=>"2"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 113ms (ActiveRecord: 0.1ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x000055f346779590>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:27:in `update'
+Started PATCH "/genres/2" for 127.0.0.1 at 2018-01-15 23:33:59 +0100
+Processing by GenresController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mNi3Bu17bnpRzmkkiEmBJtkI5rkOVlv+Kw1bTQDZ47MyefMRlIcMZ/GnEEemG+Dn0ZBLI1/iMKY3q13CGS0HKg==", "genre"=>{"name"=>"Shôjo", "age"=>"10", "description"=>"le terme Shôjo signifie \"jeune fille\" en japonais. Les mangas de ce type sont destinés à un public féminin plutôt jeune. Les histoires abordent des sujets variés, touchant à la vie quotidienne du personnage principal, avec bien entendu, une histoire d’amour. Même si cela peut paraître cliché, ces mangas pour jeune fille ont tous ce point en commun, une histoire de romance avec des héroïnes qui sont presque toujours lycéennes. On pourra citer comme exemples Fruit Basket, Kamisama Hajimemashita, ou encore Clannad. Si vous souhaitez regarder une histoire d’amour, ou quelque chose de léger et rafraichissant, vous pouvez puiser dans les shôjos, ils sont souvent bien plus différents les uns des autres que les shônens."}, "commit"=>"Enregistrer", "id"=>"2"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 143ms (ActiveRecord: 0.1ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007fdf205e8470>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:27:in `update'
+Started PATCH "/genres/2" for 127.0.0.1 at 2018-01-15 23:33:59 +0100
+Processing by GenresController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mNi3Bu17bnpRzmkkiEmBJtkI5rkOVlv+Kw1bTQDZ47MyefMRlIcMZ/GnEEemG+Dn0ZBLI1/iMKY3q13CGS0HKg==", "genre"=>{"name"=>"Shôjo", "age"=>"10", "description"=>"le terme Shôjo signifie \"jeune fille\" en japonais. Les mangas de ce type sont destinés à un public féminin plutôt jeune. Les histoires abordent des sujets variés, touchant à la vie quotidienne du personnage principal, avec bien entendu, une histoire d’amour. Même si cela peut paraître cliché, ces mangas pour jeune fille ont tous ce point en commun, une histoire de romance avec des héroïnes qui sont presque toujours lycéennes. On pourra citer comme exemples Fruit Basket, Kamisama Hajimemashita, ou encore Clannad. Si vous souhaitez regarder une histoire d’amour, ou quelque chose de léger et rafraichissant, vous pouvez puiser dans les shôjos, ils sont souvent bien plus différents les uns des autres que les shônens."}, "commit"=>"Enregistrer", "id"=>"2"}
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 0.4ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007fdf256138f0>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:27:in `update'
+Started PATCH "/genres/2" for 127.0.0.1 at 2018-01-15 23:34:00 +0100
+Processing by GenresController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mNi3Bu17bnpRzmkkiEmBJtkI5rkOVlv+Kw1bTQDZ47MyefMRlIcMZ/GnEEemG+Dn0ZBLI1/iMKY3q13CGS0HKg==", "genre"=>{"name"=>"Shôjo", "age"=>"10", "description"=>"le terme Shôjo signifie \"jeune fille\" en japonais. Les mangas de ce type sont destinés à un public féminin plutôt jeune. Les histoires abordent des sujets variés, touchant à la vie quotidienne du personnage principal, avec bien entendu, une histoire d’amour. Même si cela peut paraître cliché, ces mangas pour jeune fille ont tous ce point en commun, une histoire de romance avec des héroïnes qui sont presque toujours lycéennes. On pourra citer comme exemples Fruit Basket, Kamisama Hajimemashita, ou encore Clannad. Si vous souhaitez regarder une histoire d’amour, ou quelque chose de léger et rafraichissant, vous pouvez puiser dans les shôjos, ils sont souvent bien plus différents les uns des autres que les shônens."}, "commit"=>"Enregistrer", "id"=>"2"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 118ms (ActiveRecord: 0.2ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007fdf257e1b00>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:27:in `update'
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 23:34:05 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-15 23:34:10 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (1.6ms)
+  Rendered genres/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2018-01-15 23:34:26 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hCRRFn+VeDc3X3tyBY0WCz7OWOLdUFrvoibQYV6Oz81zxwppsK6sqA1sR2bW9ZTeS2S5FPBXVO8o2CQ9P6enDw==", "genre"=>{"name"=>"test", "age"=>"7 ans", "description"=>"toto"}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007fdf180d4fe0>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:13:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-15 23:34:27 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hCRRFn+VeDc3X3tyBY0WCz7OWOLdUFrvoibQYV6Oz81zxwppsK6sqA1sR2bW9ZTeS2S5FPBXVO8o2CQ9P6enDw==", "genre"=>{"name"=>"test", "age"=>"7 ans", "description"=>"toto"}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 109ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007fdf241afd50>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:13:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-15 23:34:29 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hCRRFn+VeDc3X3tyBY0WCz7OWOLdUFrvoibQYV6Oz81zxwppsK6sqA1sR2bW9ZTeS2S5FPBXVO8o2CQ9P6enDw==", "genre"=>{"name"=>"test", "age"=>"7 ans", "description"=>"toto"}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 111ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007fdf25255768>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:13:in `create'
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 23:34:35 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres/2" for 127.0.0.1 at 2018-01-15 23:34:39 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 20ms (Views: 16.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 23:35:06 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.5ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-15 23:50:42 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 106ms (Views: 98.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/genres/2/edit" for 127.0.0.1 at 2018-01-15 23:50:45 +0100
+Processing by GenresController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering genres/edit.html.erb within layouts/application
+  Rendered genres/_form.html.erb (3.9ms)
+  Rendered genres/edit.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 16ms (Views: 12.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/genres/2" for 127.0.0.1 at 2018-01-15 23:50:47 +0100
+Processing by GenresController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZlfaTzGwafVufIU3mmRwocmW1f49k8L+ajT2Hag3TGnM9p5YSEwL6M4V/FS0NhFgwQ54ZGwnqaZ2kvCSscOo8A==", "genre"=>{"name"=>"Shôjo", "age"=>"8", "description"=>"le terme Shôjo signifie \"jeune fille\" en japonais. Les mangas de ce type sont destinés à un public féminin plutôt jeune. Les histoires abordent des sujets variés, touchant à la vie quotidienne du personnage principal, avec bien entendu, une histoire d’amour. Même si cela peut paraître cliché, ces mangas pour jeune fille ont tous ce point en commun, une histoire de romance avec des héroïnes qui sont presque toujours lycéennes. On pourra citer comme exemples Fruit Basket, Kamisama Hajimemashita, ou encore Clannad. Si vous souhaitez regarder une histoire d’amour, ou quelque chose de léger et rafraichissant, vous pouvez puiser dans les shôjos, ils sont souvent bien plus différents les uns des autres que les shônens."}, "commit"=>"Enregistrer", "id"=>"2"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 104ms (ActiveRecord: 0.1ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007f1ae1fc85e8>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:27:in `update'
+Started PATCH "/genres/2" for 127.0.0.1 at 2018-01-15 23:50:51 +0100
+Processing by GenresController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZlfaTzGwafVufIU3mmRwocmW1f49k8L+ajT2Hag3TGnM9p5YSEwL6M4V/FS0NhFgwQ54ZGwnqaZ2kvCSscOo8A==", "genre"=>{"name"=>"Shôjo", "age"=>"7", "description"=>"le terme Shôjo signifie \"jeune fille\" en japonais. Les mangas de ce type sont destinés à un public féminin plutôt jeune. Les histoires abordent des sujets variés, touchant à la vie quotidienne du personnage principal, avec bien entendu, une histoire d’amour. Même si cela peut paraître cliché, ces mangas pour jeune fille ont tous ce point en commun, une histoire de romance avec des héroïnes qui sont presque toujours lycéennes. On pourra citer comme exemples Fruit Basket, Kamisama Hajimemashita, ou encore Clannad. Si vous souhaitez regarder une histoire d’amour, ou quelque chose de léger et rafraichissant, vous pouvez puiser dans les shôjos, ils sont souvent bien plus différents les uns des autres que les shônens."}, "commit"=>"Enregistrer", "id"=>"2"}
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 119ms (ActiveRecord: 0.3ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007f1ae1f7de30>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:27:in `update'
+Started PATCH "/genres/2" for 127.0.0.1 at 2018-01-15 23:50:55 +0100
+Processing by GenresController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZlfaTzGwafVufIU3mmRwocmW1f49k8L+ajT2Hag3TGnM9p5YSEwL6M4V/FS0NhFgwQ54ZGwnqaZ2kvCSscOo8A==", "genre"=>{"name"=>"Shôjo", "age"=>"7 ans", "description"=>"le terme Shôjo signifie \"jeune fille\" en japonais. Les mangas de ce type sont destinés à un public féminin plutôt jeune. Les histoires abordent des sujets variés, touchant à la vie quotidienne du personnage principal, avec bien entendu, une histoire d’amour. Même si cela peut paraître cliché, ces mangas pour jeune fille ont tous ce point en commun, une histoire de romance avec des héroïnes qui sont presque toujours lycéennes. On pourra citer comme exemples Fruit Basket, Kamisama Hajimemashita, ou encore Clannad. Si vous souhaitez regarder une histoire d’amour, ou quelque chose de léger et rafraichissant, vous pouvez puiser dans les shôjos, ils sont souvent bien plus différents les uns des autres que les shônens."}, "commit"=>"Enregistrer", "id"=>"2"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 0.2ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007f1ae18f9848>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:27:in `update'
+Started GET "/genres/2/edit" for 127.0.0.1 at 2018-01-16 00:00:10 +0100
+  
+SyntaxError (/home/jano/MangaProject/app/controllers/genres_controller.rb:30: syntax error, unexpected tIDENTIFIER, expecting ')'
+			redirect_to(@genre)
+			           ^
+/home/jano/MangaProject/app/controllers/genres_controller.rb:40: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/genres_controller.rb:30: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/controllers/genres_controller.rb:40: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/genres/2/edit" for 127.0.0.1 at 2018-01-16 00:01:51 +0100
+Processing by GenresController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering genres/edit.html.erb within layouts/application
+  Rendered genres/_form.html.erb (1.4ms)
+  Rendered genres/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 19ms (Views: 12.0ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/genres/2" for 127.0.0.1 at 2018-01-16 00:01:53 +0100
+Processing by GenresController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zqinh8v1eQ2OVcAsT8pfUZUVGhMjWUgaoPFdONX7GhhJ3mnl5V7tfaDADH7NluJSs/bizjWLPIGrDP8Ib03sfg==", "genre"=>{"name"=>"Shôjo", "age"=>"8", "description"=>"le terme Shôjo signifie \"jeune fille\" en japonais. Les mangas de ce type sont destinés à un public féminin plutôt jeune. Les histoires abordent des sujets variés, touchant à la vie quotidienne du personnage principal, avec bien entendu, une histoire d’amour. Même si cela peut paraître cliché, ces mangas pour jeune fille ont tous ce point en commun, une histoire de romance avec des héroïnes qui sont presque toujours lycéennes. On pourra citer comme exemples Fruit Basket, Kamisama Hajimemashita, ou encore Clannad. Si vous souhaitez regarder une histoire d’amour, ou quelque chose de léger et rafraichissant, vous pouvez puiser dans les shôjos, ils sont souvent bien plus différents les uns des autres que les shônens."}, "commit"=>"Enregistrer", "id"=>"2"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/genres/2
+Completed 200 OK in 5ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/genres/2" for 127.0.0.1 at 2018-01-16 00:01:53 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-16 00:02:03 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-16 00:02:05 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (1.3ms)
+  Rendered genres/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2018-01-16 00:02:23 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rG3a+N4yp4bWAByrUZXpDIWU28jpd+7weNpJJc/Pcl1bjoGHEQlzGewzIL+C7WvZ8D46PsRw4PDyJL15ruYanw==", "genre"=>{"name"=>"test", "age"=>"45 ans", "description"=>"toto "}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007f1ae18b9c48>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:15:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-16 00:03:23 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rG3a+N4yp4bWAByrUZXpDIWU28jpd+7weNpJJc/Pcl1bjoGHEQlzGewzIL+C7WvZ8D46PsRw4PDyJL15ruYanw==", "genre"=>{"name"=>"test", "age"=>"45 ans", "description"=>"toto "}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x0000561c44522ae0>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:15:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-16 00:03:24 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rG3a+N4yp4bWAByrUZXpDIWU28jpd+7weNpJJc/Pcl1bjoGHEQlzGewzIL+C7WvZ8D46PsRw4PDyJL15ruYanw==", "genre"=>{"name"=>"test", "age"=>"45 ans", "description"=>"toto "}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007f1ae4066e30>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:15:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-16 00:03:25 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rG3a+N4yp4bWAByrUZXpDIWU28jpd+7weNpJJc/Pcl1bjoGHEQlzGewzIL+C7WvZ8D46PsRw4PDyJL15ruYanw==", "genre"=>{"name"=>"test", "age"=>"45 ans", "description"=>"toto "}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007f1ae16a6e60>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:15:in `create'
+Started GET "/genres" for 127.0.0.1 at 2018-01-16 00:03:28 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.7ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 16ms (Views: 13.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/genres/2/edit" for 127.0.0.1 at 2018-01-16 00:04:49 +0100
+Processing by GenresController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering genres/edit.html.erb within layouts/application
+  Rendered genres/_form.html.erb (3.3ms)
+  Rendered genres/edit.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 26ms (Views: 22.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/genres/2" for 127.0.0.1 at 2018-01-16 00:04:54 +0100
+Processing by GenresController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BQd5uq9aH/m+6QJ0sZ7+jNuWxKt/RDr9F63MfY5dgCyvpj2t1qZ95B6AexefzJ9N0w5pMS7wUaULC8ryl6lktQ==", "genre"=>{"name"=>"Shôjo", "age"=>"15", "description"=>"le terme Shôjo signifie \"jeune fille\" en japonais. Les mangas de ce type sont destinés à un public féminin plutôt jeune. Les histoires abordent des sujets variés, touchant à la vie quotidienne du personnage principal, avec bien entendu, une histoire d’amour. Même si cela peut paraître cliché, ces mangas pour jeune fille ont tous ce point en commun, une histoire de romance avec des héroïnes qui sont presque toujours lycéennes. On pourra citer comme exemples Fruit Basket, Kamisama Hajimemashita, ou encore Clannad. Si vous souhaitez regarder une histoire d’amour, ou quelque chose de léger et rafraichissant, vous pouvez puiser dans les shôjos, ils sont souvent bien plus différents les uns des autres que les shônens."}, "commit"=>"Enregistrer", "id"=>"2"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "genres" SET "age" = ? WHERE "genres"."id" = ?[0m  [["age", 15], ["id", 2]]
+  [1m[35m (78.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/genres/2
+Completed 200 OK in 86ms (ActiveRecord: 78.6ms)
+
+
+Started GET "/genres/2" for 127.0.0.1 at 2018-01-16 00:04:54 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.6ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 26ms (Views: 19.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-16 00:05:06 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-16 00:05:11 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (1.5ms)
+  Rendered genres/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-16 00:06:20 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (2.3ms)
+  Rendered genres/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 18ms (Views: 11.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2018-01-16 00:06:23 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qmpshhU54uoDL1XsJpzc0tWwdkEE3DHZVyuG81+x4PwtHKLkO5J2mi26mb6kwGHR81OOnBIORUJc1iTD5QcWmg==", "genre"=>{"name"=>"", "age"=>"", "description"=>""}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x0000561c42b83f58>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:15:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-16 00:06:24 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qmpshhU54uoDL1XsJpzc0tWwdkEE3DHZVyuG81+x4PwtHKLkO5J2mi26mb6kwGHR81OOnBIORUJc1iTD5QcWmg==", "genre"=>{"name"=>"", "age"=>"", "description"=>""}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007f1ae0dc24c0>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:15:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-16 00:06:24 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qmpshhU54uoDL1XsJpzc0tWwdkEE3DHZVyuG81+x4PwtHKLkO5J2mi26mb6kwGHR81OOnBIORUJc1iTD5QcWmg==", "genre"=>{"name"=>"", "age"=>"", "description"=>""}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007f1ad0180cf8>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:15:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-16 00:06:25 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qmpshhU54uoDL1XsJpzc0tWwdkEE3DHZVyuG81+x4PwtHKLkO5J2mi26mb6kwGHR81OOnBIORUJc1iTD5QcWmg==", "genre"=>{"name"=>"", "age"=>"", "description"=>""}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 155ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007f1ae1562630>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:15:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-16 00:13:57 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qmpshhU54uoDL1XsJpzc0tWwdkEE3DHZVyuG81+x4PwtHKLkO5J2mi26mb6kwGHR81OOnBIORUJc1iTD5QcWmg==", "genre"=>{"name"=>"", "age"=>"", "description"=>""}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 92ms
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007f1ad0136e78>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:15:in `create'
+Started GET "/mangas" for 127.0.0.1 at 2018-01-20 22:28:50 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.3ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 263ms (Views: 251.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-20 22:29:04 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 52ms (Views: 30.7ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/genres/2/edit" for 127.0.0.1 at 2018-01-20 22:29:08 +0100
+Processing by GenresController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.5ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering genres/edit.html.erb within layouts/application
+  Rendered genres/_form.html.erb (36.6ms)
+  Rendered genres/edit.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 120ms (Views: 56.0ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/genres/2" for 127.0.0.1 at 2018-01-20 22:29:14 +0100
+Processing by GenresController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eTLfnGwIXi/nIuBp3FKK5z+Ie1GNn+PbPIk48zc4PrytNOevGjLKg86HHylW+ThHHYi7M3Nwm6RQz0YgLgrY+g==", "genre"=>{"name"=>"Shôjo", "age"=>"18", "description"=>"le terme Shôjo signifie \"jeune fille\" en japonais. Les mangas de ce type sont destinés à un public féminin plutôt jeune. Les histoires abordent des sujets variés, touchant à la vie quotidienne du personnage principal, avec bien entendu, une histoire d’amour. Même si cela peut paraître cliché, ces mangas pour jeune fille ont tous ce point en commun, une histoire de romance avec des héroïnes qui sont presque toujours lycéennes. On pourra citer comme exemples Fruit Basket, Kamisama Hajimemashita, ou encore Clannad. Si vous souhaitez regarder une histoire d’amour, ou quelque chose de léger et rafraichissant, vous pouvez puiser dans les shôjos, ils sont souvent bien plus différents les uns des autres que les shônens."}, "commit"=>"Enregistrer", "id"=>"2"}
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.2ms)[0m  [1m[33mUPDATE "genres" SET "age" = ? WHERE "genres"."id" = ?[0m  [["age", 18], ["id", 2]]
+  [1m[35m (109.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/genres/2
+Completed 200 OK in 126ms (ActiveRecord: 113.6ms)
+
+
+Started GET "/genres/2" for 127.0.0.1 at 2018-01-20 22:29:14 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 7.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-20 22:29:38 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-20 22:29:42 +0100
+  
+ActionController::RoutingError (uninitialized constant HomeController):
+  
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-01-20 22:29:47 +0100
+  
+ActionController::RoutingError (uninitialized constant HomeController):
+  
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.4) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.4) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/mangas" for 127.0.0.1 at 2018-01-20 22:30:11 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-20 22:30:20 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-20 22:30:34 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (3.0ms)
+  Rendered genres/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2018-01-20 22:30:41 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vR779migGkm5u71eiQzpfKq19zQDkTjBB5VKys5JMiu8ktTLLKyOcNgXsi4LCxe5Xr0IeW/oRppFpZg+MVdBjg==", "genre"=>{"name"=>"Jean ", "age"=>"test", "description"=>"de"}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 109ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007faa417ec668>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:15:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-20 22:30:42 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vR779migGkm5u71eiQzpfKq19zQDkTjBB5VKys5JMiu8ktTLLKyOcNgXsi4LCxe5Xr0IeW/oRppFpZg+MVdBjg==", "genre"=>{"name"=>"Jean ", "age"=>"test", "description"=>"de"}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007faa34238800>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:15:in `create'
+Started POST "/genres" for 127.0.0.1 at 2018-01-20 22:30:42 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vR779migGkm5u71eiQzpfKq19zQDkTjBB5VKys5JMiu8ktTLLKyOcNgXsi4LCxe5Xr0IeW/oRppFpZg+MVdBjg==", "genre"=>{"name"=>"Jean ", "age"=>"test", "description"=>"de"}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 132ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `genre_params' for #<GenresController:0x00007faa4142fa48>
+Did you mean?  genre_path):
+  
+app/controllers/genres_controller.rb:15:in `create'
+Started GET "/genres" for 127.0.0.1 at 2018-01-20 22:30:46 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-20 22:35:45 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-20 22:35:48 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (3.8ms)
+  Rendered genres/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 25ms (Views: 21.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2018-01-20 22:35:59 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Mj+YHX/0l3MJA9qdY4gKtoOmERsa5EIk+HmtToS3m/czs7cgO/gDSmiv1e3hj/Rzd67uVnadPH+6SX+6e6noUg==", "genre"=>{"name"=>"Test", "age"=>"20", "description"=>"Toto "}, "commit"=>"Enregistrer"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "genres" ("name", "age", "description") VALUES (?, ?, ?)[0m  [["name", "Test"], ["age", 20], ["description", "Toto "]]
+  [1m[35m (108.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/genres/3
+Completed 200 OK in 119ms (ActiveRecord: 109.5ms)
+
+
+Started GET "/genres/3" for 127.0.0.1 at 2018-01-20 22:35:59 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGenre Load (0.5ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 32ms (Views: 25.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-20 22:36:07 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres/3/edit" for 127.0.0.1 at 2018-01-20 22:36:15 +0100
+Processing by GenresController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering genres/edit.html.erb within layouts/application
+  Rendered genres/_form.html.erb (2.2ms)
+  Rendered genres/edit.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 19ms (Views: 16.1ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/genres/3" for 127.0.0.1 at 2018-01-20 22:36:36 +0100
+Processing by GenresController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/zA+0UWd8e3UfYFxrYOTsA9cvZhSVWFVV6NLO/Egg5MbZJzgS1Vqc4pAFfovQnAKMUXIS4ao90mV3uTqDD7NKA==", "genre"=>{"name"=>"Test", "age"=>"20", "description"=>"Ceci est une correction de la "}, "commit"=>"Enregistrer", "id"=>"3"}
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[33mUPDATE "genres" SET "description" = ? WHERE "genres"."id" = ?[0m  [["description", "Ceci est une correction de la "], ["id", 3]]
+  [1m[35m (73.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/genres/3
+Completed 200 OK in 87ms (ActiveRecord: 76.0ms)
+
+
+Started GET "/genres/3" for 127.0.0.1 at 2018-01-20 22:36:36 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGenre Load (1.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 29ms (Views: 22.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/genres/3" for 127.0.0.1 at 2018-01-20 22:47:55 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-20 22:47:57 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.5ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 28ms (Views: 23.9ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to TableGenres (20180120215028)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAddGenreIdToMangas (20180120222141)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "add_genre_id_to_mangas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180120222141"]]
+  [1m[35m (84.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddGenreIdToMangas (20180120223519)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "mangas" ADD "genre_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_mangas_on_genre_id" ON "mangas" ("genre_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180120223519"]]
+  [1m[35m (69.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+[0m
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mGenre Load (0.6ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/genres" for 127.0.0.1 at 2018-01-20 23:56:12 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 136ms (Views: 109.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-01-20 23:56:26 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 27ms (Views: 18.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-01-21 14:56:59 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.4ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (36.9ms)
+Completed 200 OK in 494ms (Views: 456.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/mangas/2" for 127.0.0.1 at 2018-01-21 14:58:07 +0100
+Processing by MangasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mManga Load (0.4ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" WHERE "mangas"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 48ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionController::UnknownFormat (MangasController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/mangas" for 127.0.0.1 at 2018-01-21 14:59:07 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mManga Load (0.7ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/mangas" for 127.0.0.1 at 2018-01-21 15:09:11 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.1ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 110ms (Views: 96.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-01-21 15:09:13 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-01-21 15:09:14 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (43.3ms)
+Completed 200 OK in 81ms (Views: 79.6ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mManga Load (0.1ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" ORDER BY "mangas"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" ORDER BY "genres"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mGenre Load (0.6ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mManga Load (0.3ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" WHERE "mangas"."genre_id" = ? LIMIT ?[0m  [["genre_id", 3], ["LIMIT", 11]]
+Started GET "/mangas" for 127.0.0.1 at 2018-01-21 15:44:42 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered mangas/index.html.erb within layouts/application (167.8ms)
+Completed 500 Internal Server Error in 183ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `mangag' for #<#<Class:0x00007f1d14a34fc0>:0x00007f1d14a3de18>
+Did you mean?  manga
+               @mangas):
+    15: 				<td><%= manga.title_traduction %></td>
+    16: 				<td><%= manga.realise_date %></td>
+    17: 				<td><%= manga.tome_number %> PV</td>
+    18: 				<td><%= mangag.genre_id %> </td>
+    19: 				<td><%= link_to 'Afficher', manga %> </td>
+    20: 				<td><%= link_to 'Supprimer', manga, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %></td>
+    21: 			</tr>
+  
+app/views/mangas/index.html.erb:18:in `block in _app_views_mangas_index_html_erb___4393144392178418975_69881438514900'
+app/views/mangas/index.html.erb:12:in `_app_views_mangas_index_html_erb___4393144392178418975_69881438514900'
+Started GET "/mangas" for 127.0.0.1 at 2018-01-21 15:44:57 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.1ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 142ms (Views: 140.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/genre" for 127.0.0.1 at 2018-01-21 15:45:14 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/genre"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/genres" for 127.0.0.1 at 2018-01-21 15:45:17 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-21 15:47:03 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mManga Load (0.1ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" ORDER BY "mangas"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" ORDER BY "mangas"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mManga Load (0.5ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" ORDER BY "mangas"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "mangas" ("title", "realise_date", "tome_number", "genre_id") VALUES (?, ?, ?, ?)[0m  [["title", "Bleach"], ["realise_date", "2001-08-20"], ["tome_number", 74], ["genre_id", 2]]
+  [1m[35m (101.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mManga Load (0.1ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" ORDER BY "mangas"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Load (0.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "mangas" SET "genre_id" = ? WHERE "mangas"."id" = ?[0m  [["genre_id", 3], ["id", 2]]
+  [1m[35m (101.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/mangas" for 127.0.0.1 at 2018-01-21 15:59:40 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 112ms (Views: 99.6ms | ActiveRecord: 0.6ms)
+
+
+  [1m[36mManga Load (0.1ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" ORDER BY "mangas"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "mangas" SET "title" = ?, "title_traduction" = ? WHERE "mangas"."id" = ?[0m  [["title", "ブリーチ"], ["title_traduction", "Bleach"], ["id", 3]]
+  [1m[35m (325.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/mangas" for 127.0.0.1 at 2018-01-21 16:02:07 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.1ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 109ms (Views: 96.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/mangas/3" for 127.0.0.1 at 2018-01-21 16:02:18 +0100
+Processing by MangasController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mManga Load (0.4ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" WHERE "mangas"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 23ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionController::UnknownFormat (MangasController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/mangas" for 127.0.0.1 at 2018-01-21 16:02:28 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 41ms (Views: 39.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-01-21 16:14:34 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  Rendered mangas/index.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/jano/MangaProject/app/views/mangas/index.html.erb:28: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^):
+  
+app/views/mangas/index.html.erb:28: syntax error, unexpected keyword_ensure, expecting keyword_end
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddGenreNameToMangas (20180121151640)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "mangas" ADD "genre_name" String[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_mangas_on_genre_name" ON "mangas" ("genre_name")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180121151640"]]
+  [1m[35m (112.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/mangas" for 127.0.0.1 at 2018-01-21 16:20:50 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  Rendered mangas/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/jano/MangaProject/app/views/mangas/index.html.erb:28: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^):
+  
+app/views/mangas/index.html.erb:28: syntax error, unexpected keyword_ensure, expecting keyword_end
+Started GET "/genres" for 127.0.0.1 at 2018-01-21 16:21:00 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 145ms (Views: 142.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/genres/3/edit" for 127.0.0.1 at 2018-01-21 16:23:06 +0100
+Processing by GenresController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering genres/edit.html.erb within layouts/application
+  Rendered genres/_form.html.erb (15.2ms)
+  Rendered genres/edit.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 61ms (Views: 59.0ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/genres/3" for 127.0.0.1 at 2018-01-21 16:23:48 +0100
+Processing by GenresController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M/BeGJkwxkgRtMFsMG4u0PKnsIdNFlcXCv8757iyLKbNNophrQtcCHVudpXvnM8kBy/BBjuXE9SJawDy79cscw==", "genre"=>{"name"=>"Shojo", "age"=>"8 ans", "description"=>"Ce terme signifie jeune fille. Le shojo s’adresse aux écolières, collégiennes, lycéennes ! Il est un peu l'équivalent du shonen mais destiné a un public féminin. Les récits abordent des sujets variés tels que la musique, le sport, l’école, la mode avec souvent des histoires d’amour en toile de fond. La plupart du temps ils sont réalisés par des auteurs féminins. Ce genre possède évidemment ses propres codes graphiques : les personnages sont longilignes aux visages finement détaillés. Il offre une grande créativité en matière de mise en page."}, "commit"=>"Enregistrer", "id"=>"3"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "genres" SET "name" = ?, "age" = ?, "description" = ? WHERE "genres"."id" = ?[0m  [["name", "Shojo"], ["age", 8], ["description", "Ce terme signifie jeune fille. Le shojo s’adresse aux écolières, collégiennes, lycéennes ! Il est un peu l'équivalent du shonen mais destiné a un public féminin. Les récits abordent des sujets variés tels que la musique, le sport, l’école, la mode avec souvent des histoires d’amour en toile de fond. La plupart du temps ils sont réalisés par des auteurs féminins. Ce genre possède évidemment ses propres codes graphiques : les personnages sont longilignes aux visages finement détaillés. Il offre une grande créativité en matière de mise en page."], ["id", 3]]
+  [1m[35m (161.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/genres/3
+Completed 200 OK in 169ms (ActiveRecord: 161.6ms)
+
+
+Started GET "/genres/3" for 127.0.0.1 at 2018-01-21 16:23:48 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-21 16:23:52 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 22ms (Views: 19.9ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/genres/3" for 127.0.0.1 at 2018-01-21 16:24:20 +0100
+Processing by GenresController#destroy as HTML
+  Parameters: {"authenticity_token"=>"RYZhd9szWZRiHgOSPd6lHEVZ1c0JCt+wislLKizE+rdKRG535Y6gurtGg3UTY6IoT+J6F9S0w0ZyUIB6vlZDVA==", "id"=>"3"}
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "genres" WHERE "genres"."id" = ?[0m  [["id", 3]]
+  [1m[35m (391.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/genres
+Completed 302 Found in 399ms (ActiveRecord: 393.0ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-21 16:24:20 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:24:31 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (1.0ms)
+  Rendered genres/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2018-01-21 16:25:11 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7/ybGUlTZ59Yrpyj5zG5SB6XcsmH0u3tAVdmzmbg8VjAy1eT8vI5WfL6hmE5EJDHjcl1nHxD2HTXBNXBNfVbSw==", "genre"=>{"name"=>"Shonen", "age"=>"10", "description"=>"Une grande partie de la BD japonaise est destinée aux garçons, de 10 à 15 ans environ. Elle encourage l’adolescent à développer des énergies positives : le courage, la persévérance, l’amitié ou encore le don de soi. La plupart des récits mettent en avant un héros juvénile auquel le lecteur s’identifie facilement, mais il possède aussi un talent caché qui lui permettra de se dépasser et d’accomplir de grandes choses. Le lecteur est immédiatement plongé dans l’action. Les auteurs optent d’ailleurs souvent pour une mise en page qui exaltent les prouesses de leurs personnages."}, "commit"=>"Enregistrer"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "genres" ("name", "age", "description") VALUES (?, ?, ?)[0m  [["name", "Shonen"], ["age", 10], ["description", "Une grande partie de la BD japonaise est destinée aux garçons, de 10 à 15 ans environ. Elle encourage l’adolescent à développer des énergies positives : le courage, la persévérance, l’amitié ou encore le don de soi. La plupart des récits mettent en avant un héros juvénile auquel le lecteur s’identifie facilement, mais il possède aussi un talent caché qui lui permettra de se dépasser et d’accomplir de grandes choses. Le lecteur est immédiatement plongé dans l’action. Les auteurs optent d’ailleurs souvent pour une mise en page qui exaltent les prouesses de leurs personnages."]]
+  [1m[35m (98.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/genres/4
+Completed 200 OK in 110ms (ActiveRecord: 99.2ms)
+
+
+Started GET "/genres/4" for 127.0.0.1 at 2018-01-21 16:25:11 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-21 16:25:14 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.6ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 67ms (Views: 63.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:25:23 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (1.8ms)
+  Rendered genres/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:26:27 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (83.9ms)
+  Rendered genres/new.html.erb within layouts/application (85.1ms)
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `area_field' for #<ActionView::Helpers::FormBuilder:0x00007f3ac8fd9300>
+Did you mean?  date_field):
+    14: 
+    15: 	<div class="field">
+    16: 		<%= form.label :description, 'Description' %>
+    17: 		<%= form.area_field :description %>
+    18: 	</div>
+    19: 	</div>
+    20: 
+  
+app/views/genres/_form.html.erb:17:in `block in _app_views_genres__form_html_erb___1733629291314917778_69945131023880'
+app/views/genres/_form.html.erb:1:in `_app_views_genres__form_html_erb___1733629291314917778_69945131023880'
+app/views/genres/new.html.erb:3:in `_app_views_genres_new_html_erb__1384571786165294001_69945131039580'
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:26:45 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (94.9ms)
+  Rendered genres/new.html.erb within layouts/application (97.3ms)
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `textarea_field' for #<ActionView::Helpers::FormBuilder:0x00007f3abcc177f0>
+Did you mean?  text_field):
+    14: 
+    15: 	<div class="field">
+    16: 		<%= form.label :description, 'Description' %>
+    17: 		<%= form.textarea_field :description %>
+    18: 	</div>
+    19: 	</div>
+    20: 
+  
+app/views/genres/_form.html.erb:17:in `block in _app_views_genres__form_html_erb___1733629291314917778_69945125902820'
+app/views/genres/_form.html.erb:1:in `_app_views_genres__form_html_erb___1733629291314917778_69945125902820'
+app/views/genres/new.html.erb:3:in `_app_views_genres_new_html_erb__1384571786165294001_69945126023320'
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:32:44 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (148.5ms)
+  Rendered genres/new.html.erb within layouts/application (150.8ms)
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x00007f3ac8725420>:0x00007f3abd6cb340>):
+    16: 		<%= form.label :description, 'Description' %>
+    17: 		<%= form.text_field :description %>
+    18: 
+    19: 		<%= f.text_area(:description, rows: 15, "data-provide" => "markdown")%>
+    20: 	</div>
+    21: 	</div>
+    22: 
+  
+app/views/genres/_form.html.erb:19:in `block in _app_views_genres__form_html_erb___1733629291314917778_69945131401380'
+app/views/genres/_form.html.erb:1:in `_app_views_genres__form_html_erb___1733629291314917778_69945131401380'
+app/views/genres/new.html.erb:3:in `_app_views_genres_new_html_erb__1384571786165294001_69945131425420'
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:32:46 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (154.1ms)
+  Rendered genres/new.html.erb within layouts/application (157.8ms)
+Completed 500 Internal Server Error in 169ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x00007f3ac8725420>:0x00007f3abd6dbd08>):
+    16: 		<%= form.label :description, 'Description' %>
+    17: 		<%= form.text_field :description %>
+    18: 
+    19: 		<%= f.text_area(:description, rows: 15, "data-provide" => "markdown")%>
+    20: 	</div>
+    21: 	</div>
+    22: 
+  
+app/views/genres/_form.html.erb:19:in `block in _app_views_genres__form_html_erb___1733629291314917778_69945131531260'
+app/views/genres/_form.html.erb:1:in `_app_views_genres__form_html_erb___1733629291314917778_69945131531260'
+app/views/genres/new.html.erb:3:in `_app_views_genres_new_html_erb__1384571786165294001_69945131344860'
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:33:44 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (146.8ms)
+  Rendered genres/new.html.erb within layouts/application (148.4ms)
+Completed 500 Internal Server Error in 154ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x00007f3ac8725420>:0x00007f3abccfd980>):
+    16: 		<%= form.label :description, 'Description' %>
+    17: 		<%= form.text_field :description %>
+    18: 
+    19: 		<%= f.text_area(:content, rows: 15)%>
+    20: 	</div>
+    21: 	</div>
+    22: 
+  
+app/views/genres/_form.html.erb:19:in `block in _app_views_genres__form_html_erb___1733629291314917778_69945126165000'
+app/views/genres/_form.html.erb:1:in `_app_views_genres__form_html_erb___1733629291314917778_69945126165000'
+app/views/genres/new.html.erb:3:in `_app_views_genres_new_html_erb__1384571786165294001_69945126287480'
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:34:05 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (14.9ms)
+  Rendered genres/new.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 26ms (Views: 24.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:34:35 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (2.3ms)
+  Rendered genres/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:35:12 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (4.1ms)
+  Rendered genres/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 33ms (Views: 28.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:35:45 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (5.4ms)
+  Rendered genres/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 36ms (Views: 33.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2018-01-21 16:36:15 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vHeF1eg8pXL65Z5d/h6z27BGtA24NqHIm/grLjkFYHyztYrV1oFcXCO9HrrQo7Tvuv0b12WIvT5jYeB+q5fZnw==", "genre"=>{"name"=>"Kodomo", "age"=>"6 ans", "description"=>"Ce mot signifie enfant.\nIci, les mangas ciblent un public plus jeune que le shonen et le shojo, de 6 à 11 ans. La principale fonction du kodomo et de divertir les enfants (fille et garcon). Le succès de certains d’entre eux, comme Pokémon, élargit leur audience."}, "commit"=>"Enregistrer"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "genres" ("name", "age", "description") VALUES (?, ?, ?)[0m  [["name", "Kodomo"], ["age", 6], ["description", "Ce mot signifie enfant.\nIci, les mangas ciblent un public plus jeune que le shonen et le shojo, de 6 à 11 ans. La principale fonction du kodomo et de divertir les enfants (fille et garcon). Le succès de certains d’entre eux, comme Pokémon, élargit leur audience."]]
+  [1m[35m (102.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/genres/5
+Completed 200 OK in 108ms (ActiveRecord: 102.5ms)
+
+
+Started GET "/genres/5" for 127.0.0.1 at 2018-01-21 16:36:15 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-21 16:36:19 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 25ms (Views: 20.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:36:41 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (1.5ms)
+  Rendered genres/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2018-01-21 16:37:39 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Oyh39AzXLURUzLSnaO7xmFCTAX7j2Cx15rwRHu1GeQ4UH7t+t3Zzgv6YrmW2z9gXw80GKxhJGeww76IRvlPTHQ==", "genre"=>{"name"=>"Seinen", "age"=>"18", "description"=>"Récits d’aventure, intrigues sentimentales, thrillers ou chroniques de la vie quotidienne, les mangas pour adultes abordent tous les thèmes et tous les registres imaginables. Sujets, univers, graphismes varient, du réalisme le plus sobre à l’outrance, qu’elle soit comique ou dramatique. Les récits sont pour la plupart graves, intimistes, ou au contraire épiques.\nSi ce type de manga reprend les thèmes abordés dans les shonens, les intrigues sont plus complexes et les personnages plus subtils et plus difficile a cerner. "}, "commit"=>"Enregistrer"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "genres" ("name", "age", "description") VALUES (?, ?, ?)[0m  [["name", "Seinen"], ["age", 18], ["description", "Récits d’aventure, intrigues sentimentales, thrillers ou chroniques de la vie quotidienne, les mangas pour adultes abordent tous les thèmes et tous les registres imaginables. Sujets, univers, graphismes varient, du réalisme le plus sobre à l’outrance, qu’elle soit comique ou dramatique. Les récits sont pour la plupart graves, intimistes, ou au contraire épiques.\nSi ce type de manga reprend les thèmes abordés dans les shonens, les intrigues sont plus complexes et les personnages plus subtils et plus difficile a cerner. "]]
+  [1m[35m (152.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/genres/6
+Completed 200 OK in 164ms (ActiveRecord: 155.9ms)
+
+
+Started GET "/genres/6" for 127.0.0.1 at 2018-01-21 16:37:40 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 10ms (Views: 7.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-21 16:37:41 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 27ms (Views: 22.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:37:46 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (3.4ms)
+  Rendered genres/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 30ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2018-01-21 16:39:19 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q4YPdfBNVQR+l3dC1jYXDdYGnxzq6tVmZGyFsDA1uC2EscP/S+wLwtTDbYAIFz6CRViYSRF74P+yPza/YyASPg==", "genre"=>{"name"=>"Young Seinen", "age"=>"15", "description"=>"Ce genre de manga ce situe juste entre shonen et seinen, il s'adresse aux jeunes adultes, lycéens et étudiants, il traite pour la plupart du temps de science-fiction,de sport ou de combat. Les dessin de ce style sont plus réaliste, et il reste assez courant de voir des jeunes filles plus dénudé."}, "commit"=>"Enregistrer"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "genres" ("name", "age", "description") VALUES (?, ?, ?)[0m  [["name", "Young Seinen"], ["age", 15], ["description", "Ce genre de manga ce situe juste entre shonen et seinen, il s'adresse aux jeunes adultes, lycéens et étudiants, il traite pour la plupart du temps de science-fiction,de sport ou de combat. Les dessin de ce style sont plus réaliste, et il reste assez courant de voir des jeunes filles plus dénudé."]]
+  [1m[35m (111.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/genres/7
+Completed 200 OK in 118ms (ActiveRecord: 111.9ms)
+
+
+Started GET "/genres/7" for 127.0.0.1 at 2018-01-21 16:39:19 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-21 16:39:21 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (3.0ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 34ms (Views: 28.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/genres/new" for 127.0.0.1 at 2018-01-21 16:39:23 +0100
+Processing by GenresController#new as HTML
+  Rendering genres/new.html.erb within layouts/application
+  Rendered genres/_form.html.erb (1.5ms)
+  Rendered genres/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/genres" for 127.0.0.1 at 2018-01-21 16:40:18 +0100
+Processing by GenresController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ET9KjezIAWGglaSZC4vH+04/qgb+UT1pGUm0Feyv5a0+CIYHV2lfpwrBvlvVqu503WGtUwXACPDPGgcav7pPvg==", "genre"=>{"name"=>"Josei", "age"=>"18", "description"=>"C’est le pendant féminin du seinen. On l’appelle également «ladies comic».\nLes intrigues y sont plus complexes que dans le shojo. Les relations amoureuses, la séduction et les relations sexuelles sont souvent les sujets principaux de ces récits, tout comme les préoccupations des jeunes femmes modernes tels que le célibat, le travail, le partenaire idéal. "}, "commit"=>"Enregistrer"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "genres" ("name", "age", "description") VALUES (?, ?, ?)[0m  [["name", "Josei"], ["age", 18], ["description", "C’est le pendant féminin du seinen. On l’appelle également «ladies comic».\nLes intrigues y sont plus complexes que dans le shojo. Les relations amoureuses, la séduction et les relations sexuelles sont souvent les sujets principaux de ces récits, tout comme les préoccupations des jeunes femmes modernes tels que le célibat, le travail, le partenaire idéal. "]]
+  [1m[35m (182.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/genres/8
+Completed 200 OK in 189ms (ActiveRecord: 183.6ms)
+
+
+Started GET "/genres/8" for 127.0.0.1 at 2018-01-21 16:40:19 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-01-21 16:45:07 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/genres/2" for 127.0.0.1 at 2018-01-21 16:45:18 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/genres/2/edit" for 127.0.0.1 at 2018-01-21 16:45:22 +0100
+Processing by GenresController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering genres/edit.html.erb within layouts/application
+  Rendered genres/_form.html.erb (1.0ms)
+  Rendered genres/edit.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-01-21 16:45:31 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  Rendered mangas/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/jano/MangaProject/app/views/mangas/index.html.erb:28: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^):
+  
+app/views/mangas/index.html.erb:28: syntax error, unexpected keyword_ensure, expecting keyword_end

@@ -12,13 +12,12 @@ class GenresController < ApplicationController
 	end
 
 	def create
-		@genre = Genre.new(genre_params)
+		@genre = Genre.new(params.require(:genre).permit(:name, :age , :description))
 		if @genre.save
 			redirect_to(@genre)
 		else
 			render 'new'
 		end
-		redirect_to(genres_path)
 	end
 
 	def edit
@@ -42,4 +41,3 @@ class GenresController < ApplicationController
 		redirect_to(genres_path)
 	end
 end
-

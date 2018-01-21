@@ -6,15 +6,18 @@
 		<th>Titre traduit</th>
 		<th>Date de publication</th>
 		<th>Numéro de Tome</th>
+		<th>Id du genre </th>
 	</thead>
 	<tbody>
 		<% @mangas.each do |manga| %>
+		<% @genre.each do |genre| %>
 			<tr>
 				<td><%= manga.title%></td>
 				<td><%= manga.title_traduction %></td>
 				<td><%= manga.realise_date %></td>
-				<td><%= manga.tome_number %> PV</td>
-				<td><%= link_to 'Afficher', manga %></td>
+				<td><%= manga.tome_number %> tomes </td>
+				<td><%= genre.name %> </td>
+				<td><%= link_to 'Afficher', manga %> </td>
 				<td><%= link_to 'Supprimer', manga, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %></td>
 			</tr>
 		<% end %>
