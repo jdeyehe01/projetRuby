@@ -7,21 +7,22 @@
 		<th>Titre traduit</th>
 		<th>Date de publication</th>
 		<th>Numéro de Tome</th>
-		<th>Id du genre </th>
+		<th>Genre</th>
 
 	</thead>
 	<tbody>
 		<% @mangas.each do |manga| %>
-	
+			<%@genre = Genre.find(manga.genre_id) %>
 			<tr>
 				<td><%= manga.title%></td>
 				<td><%= manga.title_traduction %></td>
 				<td><%= manga.realise_date %></td>
-				
 				<td><%= manga.tome_number %> tomes </td>
+				<td><%= link_to @genre.name , @genre %></td>
 				<td><%= link_to 'Afficher', manga %></td>
 				<td><%= link_to 'Supprimer', manga, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %></td>
 			</tr>
+
 		<% end %>
 	</tbody>
 </table>
