@@ -10,7 +10,7 @@ class MangasController < ApplicationController
 		@manga = Manga.new
 	end
 	def create
-		@manga = Manga.new(manga_params)
+		@manga = Manga.new()
 		if @manga.save
 			redirect_to(@manga)
 		else
