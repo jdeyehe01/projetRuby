@@ -1,0 +1,21 @@
+<%= form_with(model: auteur, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :first_name, 'Prénom' %>
+    <%= form.text_field :first_name, id: :auteur_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name, 'Nom de famille' %>
+    <%= form.text_field :last_name, id: :auteur_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthday, 'Date de naissance' %>
+    <%= form.text_field :birthday, id: :auteur_birthday %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Enregistrer' %>
+  </div>
+<% end %>

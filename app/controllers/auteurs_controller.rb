@@ -1,5 +1,5 @@
 class AuteursController < ApplicationController
-	before_action :set_auteur, only [:show, :edit, :update, :destroy]
+	before_action :set_auteur, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@auteurs = Auteur.all
@@ -45,3 +45,4 @@ class AuteursController < ApplicationController
 		params.require(:auteur).permit(
 				:last_name, :first_name, :birthday)
 	end
+end

@@ -1,0 +1,25 @@
+<h1>Liste des auteurs</h1>
+
+<table>
+	<thead>
+		<th>Nom</th>
+		<th>Prénom</th>
+		<th>Date de naissance</th>
+	</thead>
+	<tbody>
+		<% @auteurs.each do |auteur| %>
+			<tr>
+				<td><%= auteur.last_name %></td>
+				<td><%= auteur.first_name %></td>
+				<td><%= auteur.birthday %></td>
+				<td><%= link_to 'Afficher', auteur %></td>
+				<td><%= link_to 'Modifier', edit_auteur_path(auteur) %></td>
+				<td><%= link_to 'Supprimer', auteur, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<p>
+	<%= link_to 'Ajouter un auteur', new_auteur_path %>
+</p>
