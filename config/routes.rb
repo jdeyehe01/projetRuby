@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root to: 'mangas#index'
   resources :mangas
 
-  root to: 'home#index'
+  root to: 'genres#index'
   resources :genres
+
+  root to: 'auteurs#index'
+  resources :auteurs
+
   
 end

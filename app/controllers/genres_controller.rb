@@ -6,11 +6,9 @@ class GenresController < ApplicationController
 	def show
 		@genre = Genre.find(params[:id])
 	end
-
 	def new
 		@genre = Genre.new
 	end
-
 	def create
 		@genre = Genre.new(params.require(:genre).permit(:name, :age , :description))
 		if @genre.save
@@ -19,22 +17,17 @@ class GenresController < ApplicationController
 			render 'new'
 		end
 	end
-
 	def edit
 		@genre = Genre.find(params[:id])
 	end
-
 	def update
 		@genre = Genre.find(params[:id])
-		if @genre.update(
-			params.require(:genre).permit(
-				:name, :age , :description))
+		if @genre.update(genre_params)
 			redirect_to(@genre)
 		else
 			render 'edit'
 		end
 	end
-
 	def destroy
 		@genre = Genre.find(params[:id])
 		@genre.destroy
