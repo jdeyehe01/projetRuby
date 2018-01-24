@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180124002702) do
+ActiveRecord::Schema.define(version: 20180124072712) do
 
   create_table "add_genre_id_to_mangas", force: :cascade do |t|
   end

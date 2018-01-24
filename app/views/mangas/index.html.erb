@@ -8,6 +8,7 @@
 		<th>Date de publication</th>
 		<th>Numéro de Tome</th>
 		<th>Genre</th>
+		<th>Auteur</th>
 
 	</thead>
 	<tbody>
@@ -15,7 +16,7 @@
 		<% @mangas.each do |manga| %>
 			<%@genre = Genre.find(manga.genre_id) %>
 			<%@image = Image.find(manga.image_id) %>
-
+			<%@auteur = Auteur.find(manga.auteur_id) %>
 
 			
 			<tr>
@@ -25,6 +26,7 @@
 				<td><%= manga.realise_date %></td>
 				<td><%= manga.tome_number %> tomes </td>
 				<td><%= link_to @genre.name , @genre %></td>
+				<td><%= link_to @auteur.first_name , @auteur %></td>
 				<td><%= link_to 'Afficher', manga %></td>
 				<td><%= link_to 'Supprimer', manga, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %></td>
 			</tr>
