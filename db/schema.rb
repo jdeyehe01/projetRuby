@@ -10,8 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180121151640) do
+ActiveRecord::Schema.define(version: 20180124002702) do
 
+  create_table "add_genre_id_to_mangas", force: :cascade do |t|
+  end
 
   create_table "auteurs", force: :cascade do |t|
     t.string "first_name"
@@ -23,6 +25,11 @@ ActiveRecord::Schema.define(version: 20180121151640) do
     t.string "name"
     t.integer "age"
     t.string "description"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
   end
 
 # Could not dump table "mangas" because of following StandardError
