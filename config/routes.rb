@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   root to: 'auteurs#index'
   resources :auteurs
 
+  root to: 'utilisateurs#index'
+  resources :utilisateurs
   
 end

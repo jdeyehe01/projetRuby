@@ -1,0 +1,35 @@
+<%= form_with(model: utilisateurs) do |form| %>
+	
+	<div class="field">
+				
+		<div class="field">
+		<%= form.label :login, 'Login' %>
+		<%= form.text_field :login %>
+	</div>
+
+	<div class="field">
+		<%= form.label :pw, "Mot de passe" %>
+		<%= form.text_field :pw %>
+	</div>
+
+	<div class="field">
+		<%= form.label :firstName, "Prénom" %>
+		<%= form.text_field :pw %>
+	</div>
+
+	<div class="field">
+		<%= form.label :lastName, "Nom" %>
+		<%= form.text_field :pw %>
+	</div>
+
+	<div class="field">
+		<%= form.label :birthday, "Date de naissance" %>
+		<%= form.text_field :birthday %>
+	</div>
+	
+
+	<div class="actions">
+		<%= form.submit 'Enregistrer' %>
+	</div>
+
+<% end -%>
