@@ -5664,3 +5664,131 @@ Did you mean?  utilisateur
   
 app/views/utilisateurs/_form-connexion.html.erb:1:in `_app_views_utilisateurs__form_connexion_html_erb___3848681635847199837_70107960257660'
 app/views/utilisateurs/index.html.erb:3:in `_app_views_utilisateurs_index_html_erb__4269495212163301753_70107960305120'
+Started GET "/genres" for 127.0.0.1 at 2018-01-25 23:26:23 +0100
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.5ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 941ms (Views: 876.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/utilisateurs" for 127.0.0.1 at 2018-01-25 23:26:54 +0100
+Processing by UtilisateursController#index as HTML
+  Rendering utilisateurs/index.html.erb within layouts/application
+  [1m[36mUtilisateur Load (0.5ms)[0m  [1m[34mSELECT  "utilisateurs".* FROM "utilisateurs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Utilisateur Load (0.0ms)[0m  [1m[34mSELECT  "utilisateurs".* FROM "utilisateurs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Utilisateur Load (0.0ms)[0m  [1m[34mSELECT  "utilisateurs".* FROM "utilisateurs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Utilisateur Load (0.0ms)[0m  [1m[34mSELECT  "utilisateurs".* FROM "utilisateurs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Utilisateur Load (0.0ms)[0m  [1m[34mSELECT  "utilisateurs".* FROM "utilisateurs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Utilisateur Load (0.0ms)[0m  [1m[34mSELECT  "utilisateurs".* FROM "utilisateurs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Utilisateur Load (0.0ms)[0m  [1m[34mSELECT  "utilisateurs".* FROM "utilisateurs" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Utilisateur Load (0.0ms)[0m  [1m[34mSELECT  "utilisateurs".* FROM "utilisateurs" LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered utilisateurs/_form-connexion.html.erb (248.3ms)
+  Rendered utilisateurs/index.html.erb within layouts/application (268.5ms)
+Completed 500 Internal Server Error in 327ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `utilisateurs' for #<#<Class:0xae4bc90>:0xae4ab80>
+Did you mean?  utilisateur
+               utilisateurs_url
+               @utilisateur):
+    1: <%= form_with(model: utilisateurs) do |form| %>
+    2: 	
+    3: 	<div class="field">
+    4: 				
+  
+app/views/utilisateurs/_form-connexion.html.erb:1:in `_app_views_utilisateurs__form_connexion_html_erb__366987747_91352676'
+app/views/utilisateurs/index.html.erb:3:in `_app_views_utilisateurs_index_html_erb__904915573_91390200'
+Started GET "/mangas" for 127.0.0.1 at 2018-01-25 23:30:24 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.5ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  [1m[36mGenre Load (15.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.0ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGenre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Load (0.5ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.5ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Image Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE Auteur Load (0.0ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Image Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Auteur Load (0.0ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered mangas/index.html.erb within layouts/application (136.8ms)
+Completed 200 OK in 607ms (Views: 178.5ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/utilisateurs" for 127.0.0.1 at 2018-01-25 23:39:11 +0100
+Processing by UtilisateursController#index as HTML
+  Rendering utilisateurs/index.html.erb within layouts/application
+  [1m[36mUtilisateur Load (0.0ms)[0m  [1m[34mSELECT  "utilisateurs".* FROM "utilisateurs" LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered utilisateurs/_form-connexion.html.erb (26.6ms)
+  Rendered utilisateurs/index.html.erb within layouts/application (44.1ms)
+Completed 500 Internal Server Error in 118ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<Utilisateur::ActiveRecord_Relation:0x5af50b8>
+Did you mean?  to_xml):
+    1: <%= form_with(model: utilisateur) do |form| %>
+    2: 	
+    3: 	<div class="field">
+    4: 				
+  
+app/views/utilisateurs/_form-connexion.html.erb:1:in `_app_views_utilisateurs__form_connexion_html_erb__366987747_47446344'
+app/views/utilisateurs/index.html.erb:3:in `_app_views_utilisateurs_index_html_erb__904915573_47675016'
+Started GET "/utilisateurs" for 127.0.0.1 at 2018-01-25 23:46:26 +0100
+Processing by UtilisateursController#index as HTML
+  Rendering utilisateurs/index.html.erb within layouts/application
+  [1m[36mUtilisateur Load (0.5ms)[0m  [1m[34mSELECT  "utilisateurs".* FROM "utilisateurs" WHERE "utilisateurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered utilisateurs/index.html.erb within layouts/application (23.6ms)
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Utilisateur with 'id'=1):
+  
+app/views/utilisateurs/index.html.erb:3:in `_app_views_utilisateurs_index_html_erb__904915573_106747428'
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (298.4ms)[0m  [1m[32mINSERT INTO "utilisateurs" ("id", "login", "pw", "firstName", "lastName") VALUES (?, ?, ?, ?, ?)[0m  [["id", 1], ["login", "Jean"], ["pw", "jean"], ["firstName", "jean"], ["lastName", "deyehe"]]
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/utilisateurs" for 127.0.0.1 at 2018-01-25 23:56:39 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UtilisateursController#index as HTML
+  Rendering utilisateurs/index.html.erb within layouts/application
+  [1m[36mUtilisateur Load (0.0ms)[0m  [1m[34mSELECT  "utilisateurs".* FROM "utilisateurs" WHERE "utilisateurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered utilisateurs/_form-connexion.html.erb (65.5ms)
+  Rendered utilisateurs/index.html.erb within layouts/application (109.7ms)
+Completed 200 OK in 497ms (Views: 455.7ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/utilisateurs" for 127.0.0.1 at 2018-01-25 23:58:54 +0100
+Processing by UtilisateursController#index as HTML
+  Rendering utilisateurs/index.html.erb within layouts/application
+  Rendered utilisateurs/_form-connexion.html.erb (1.5ms)
+  Rendered utilisateurs/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 110ms (Views: 91.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/utilisateurs" for 127.0.0.1 at 2018-01-25 23:59:24 +0100
+Processing by UtilisateursController#index as HTML
+  Rendering utilisateurs/index.html.erb within layouts/application
+  [1m[36mUtilisateur Load (0.5ms)[0m  [1m[34mSELECT  "utilisateurs".* FROM "utilisateurs" LIMIT ?[0m  [["LIMIT", 11]]
+  Rendered utilisateurs/_form-connexion.html.erb (21.5ms)
+  Rendered utilisateurs/index.html.erb within layouts/application (35.1ms)
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for #<Utilisateur::ActiveRecord_Relation:0xa917510>
+Did you mean?  to_xml):
+    1: <%= form_with(model: utilisateur) do |form| %>
+    2: 	
+    3: 	<div class="field">
+    4: 				
+  
+app/views/utilisateurs/_form-connexion.html.erb:1:in `_app_views_utilisateurs__form_connexion_html_erb___200664669_88599624'
+app/views/utilisateurs/index.html.erb:4:in `_app_views_utilisateurs_index_html_erb__263361402_88648944'
