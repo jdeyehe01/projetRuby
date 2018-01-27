@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'users/index' => 'users#index'
+
+  get 'users/login' => 'users#login'
+
+  post 'users/login' => 'users#check'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'mangas#index'
   resources :mangas
@@ -8,8 +14,5 @@ Rails.application.routes.draw do
 
   root to: 'auteurs#index'
   resources :auteurs
-
-  root to: 'utilisateurs#index'
-  resources :utilisateurs
   
 end
