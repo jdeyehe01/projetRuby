@@ -6705,3 +6705,305 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 68ms (Views: 55.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/mangas" for 127.0.0.1 at 2018-02-02 18:03:49 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered mangas/index.html.erb within layouts/application (762.1ms)
+Completed 200 OK in 803ms (Views: 770.3ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/auteurs/1" for 127.0.0.1 at 2018-02-02 18:03:55 +0100
+Processing by AuteursController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering auteurs/show.html.erb within layouts/application
+  Rendered auteurs/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 12ms (Views: 9.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auteurs" for 127.0.0.1 at 2018-02-02 18:03:57 +0100
+Processing by AuteursController#index as HTML
+  Rendering auteurs/index.html.erb within layouts/application
+  [1m[36mAuteur Load (0.2ms)[0m  [1m[34mSELECT "auteurs".* FROM "auteurs"[0m
+  Rendered auteurs/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-02-02 18:06:22 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGenre Load (5.3ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Load (0.2ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Image Load (1.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE Auteur Load (0.0ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Image Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Auteur Load (0.0ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered mangas/index.html.erb within layouts/application (45.9ms)
+Completed 200 OK in 51ms (Views: 42.8ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/genres/4" for 127.0.0.1 at 2018-02-02 18:06:26 +0100
+Processing by GenresController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering genres/show.html.erb within layouts/application
+  Rendered genres/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/genres" for 127.0.0.1 at 2018-02-02 18:06:34 +0100
+Processing by GenresController#index as HTML
+  Rendering genres/index.html.erb within layouts/application
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT "genres".* FROM "genres"[0m
+  Rendered genres/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-02-02 18:07:47 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Image Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE Auteur Load (0.0ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Image Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Auteur Load (0.0ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered mangas/index.html.erb within layouts/application (30.4ms)
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/auteurs/1" for 127.0.0.1 at 2018-02-02 18:08:35 +0100
+Processing by AuteursController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering auteurs/show.html.erb within layouts/application
+  Rendered auteurs/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auteurs" for 127.0.0.1 at 2018-02-02 18:12:16 +0100
+Processing by AuteursController#index as HTML
+  Rendering auteurs/index.html.erb within layouts/application
+  [1m[36mAuteur Load (0.2ms)[0m  [1m[34mSELECT "auteurs".* FROM "auteurs"[0m
+  Rendered auteurs/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/auteurs/0/edit" for 127.0.0.1 at 2018-02-02 18:12:23 +0100
+Processing by AuteursController#edit as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering auteurs/edit.html.erb within layouts/application
+  Rendered auteurs/_form.html.erb (58.1ms)
+  Rendered auteurs/edit.html.erb within layouts/application (62.6ms)
+Completed 200 OK in 78ms (Views: 65.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auteurs" for 127.0.0.1 at 2018-02-02 18:12:27 +0100
+Processing by AuteursController#index as HTML
+  Rendering auteurs/index.html.erb within layouts/application
+  [1m[36mAuteur Load (0.2ms)[0m  [1m[34mSELECT "auteurs".* FROM "auteurs"[0m
+  Rendered auteurs/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 45ms (Views: 6.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-02-02 18:12:32 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGenre Load (2.6ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Image Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE Auteur Load (0.0ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Image Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Auteur Load (0.0ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered mangas/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 25ms (Views: 20.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/auteurs/0" for 127.0.0.1 at 2018-02-02 18:12:36 +0100
+Processing by AuteursController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mAuteur Load (0.2ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering auteurs/show.html.erb within layouts/application
+  Rendered auteurs/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/auteurs/0/edit" for 127.0.0.1 at 2018-02-02 18:12:38 +0100
+Processing by AuteursController#edit as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering auteurs/edit.html.erb within layouts/application
+  Rendered auteurs/_form.html.erb (2.4ms)
+  Rendered auteurs/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auteurs" for 127.0.0.1 at 2018-02-02 18:12:40 +0100
+Processing by AuteursController#index as HTML
+  Rendering auteurs/index.html.erb within layouts/application
+  [1m[36mAuteur Load (0.2ms)[0m  [1m[34mSELECT "auteurs".* FROM "auteurs"[0m
+  Rendered auteurs/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/auteurs/1/edit" for 127.0.0.1 at 2018-02-02 18:12:44 +0100
+Processing by AuteursController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering auteurs/edit.html.erb within layouts/application
+  Rendered auteurs/_form.html.erb (1.4ms)
+  Rendered auteurs/edit.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 71ms (Views: 70.1ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/auteurs/1" for 127.0.0.1 at 2018-02-02 18:13:22 +0100
+Processing by AuteursController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IdhkkEFEDd8uUZlEgjAnIwxw83Jy50QxgJOahiPEHCKViX1wnb0dSkocr8Cyxra2JndC3YFjr85Zv4EqA968rw==", "auteur"=>{"first_name"=>"Masashi", "last_name"=>"Kishimoto", "birthday"=>"08/11/1974"}, "commit"=>"Enregistrer", "id"=>"1"}
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (5.3ms)[0m  [1m[33mUPDATE "auteurs" SET "last_name" = ?, "first_name" = ?, "birthday" = ? WHERE "auteurs"."id" = ?[0m  [["last_name", "Kishimoto"], ["first_name", "Masashi"], ["birthday", "1974-11-08"], ["id", 1]]
+  [1m[35m (17.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/auteurs/1
+Completed 302 Found in 38ms (ActiveRecord: 23.3ms)
+
+
+Started GET "/auteurs/1" for 127.0.0.1 at 2018-02-02 18:13:22 +0100
+Processing by AuteursController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering auteurs/show.html.erb within layouts/application
+  Rendered auteurs/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auteurs" for 127.0.0.1 at 2018-02-02 18:13:23 +0100
+Processing by AuteursController#index as HTML
+  Rendering auteurs/index.html.erb within layouts/application
+  [1m[36mAuteur Load (0.2ms)[0m  [1m[34mSELECT "auteurs".* FROM "auteurs"[0m
+  Rendered auteurs/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-02-02 18:13:28 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Image Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE Auteur Load (0.0ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Image Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Auteur Load (0.0ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered mangas/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/auteurs/0" for 127.0.0.1 at 2018-02-02 18:15:46 +0100
+Processing by AuteursController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering auteurs/show.html.erb within layouts/application
+  Rendered auteurs/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auteurs/0/edit" for 127.0.0.1 at 2018-02-02 18:15:48 +0100
+Processing by AuteursController#edit as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering auteurs/edit.html.erb within layouts/application
+  Rendered auteurs/_form.html.erb (1.3ms)
+  Rendered auteurs/edit.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/auteurs/0" for 127.0.0.1 at 2018-02-02 18:16:32 +0100
+Processing by AuteursController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pe31r8okRq13AFSnOB/+Fc+JOHiDiwEEjJ/wqHSENLhNSlAbTBH4kPZmxlD4ppzfo5SqyM5sAlhOP/Arv4om7A==", "auteur"=>{"first_name"=>"Tite", "last_name"=>"Kubo", "birthday"=>"26/06/1977"}, "commit"=>"Enregistrer", "id"=>"0"}
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[33mUPDATE "auteurs" SET "last_name" = ?, "first_name" = ?, "birthday" = ? WHERE "auteurs"."id" = ?[0m  [["last_name", "Kubo"], ["first_name", "Tite"], ["birthday", "1977-06-26"], ["id", 0]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/auteurs/0
+Completed 302 Found in 26ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/auteurs/0" for 127.0.0.1 at 2018-02-02 18:16:32 +0100
+Processing by AuteursController#show as HTML
+  Parameters: {"id"=>"0"}
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendering auteurs/show.html.erb within layouts/application
+  Rendered auteurs/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/auteurs" for 127.0.0.1 at 2018-02-02 18:16:35 +0100
+Processing by AuteursController#index as HTML
+  Rendering auteurs/index.html.erb within layouts/application
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT "auteurs".* FROM "auteurs"[0m
+  Rendered auteurs/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 10ms (Views: 5.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-02-02 18:16:40 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGenre Load (0.1ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mImage Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAuteur Load (0.1ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE Image Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mCACHE Auteur Load (0.0ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Genre Load (0.0ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Image Load (0.0ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Auteur Load (0.0ms)[0m  [1m[34mSELECT  "auteurs".* FROM "auteurs" WHERE "auteurs"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  Rendered mangas/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.7ms)
+
+
