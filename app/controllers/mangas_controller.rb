@@ -1,4 +1,5 @@
 class MangasController < ApplicationController
+	before_action :authenticate_user!
 	def index
 		@mangas = Manga.all
 		@genre = Genre.all
