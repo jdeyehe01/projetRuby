@@ -7409,3 +7409,44 @@ puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
 puma (3.11.0) lib/puma/server.rb:438:in `process_client'
 puma (3.11.0) lib/puma/server.rb:302:in `block in run'
 puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/mangas/" for 127.0.0.1 at 2018-02-02 19:14:52 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  Rendered mangas/index.html.erb within layouts/application (44.0ms)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Genre with 'id'=):
+  
+app/views/mangas/index.html.erb:17:in `block in _app_views_mangas_index_html_erb___4451237743380363929_34969240'
+app/views/mangas/index.html.erb:16:in `_app_views_mangas_index_html_erb___4451237743380363929_34969240'
+Started GET "/" for 127.0.0.1 at 2018-02-02 19:15:02 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  [1m[36mGenre Load (0.2ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  Rendered mangas/index.html.erb within layouts/application (18.3ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Genre with 'id'=):
+  
+app/views/mangas/index.html.erb:17:in `block in _app_views_mangas_index_html_erb___4451237743380363929_69913078636760'
+app/views/mangas/index.html.erb:16:in `_app_views_mangas_index_html_erb___4451237743380363929_69913078636760'
+Started GET "/mangas/new" for 127.0.0.1 at 2018-02-02 19:15:38 +0100
+Processing by MangasController#new as HTML
+  Rendering mangas/new.html.erb within layouts/application
+  Rendered mangas/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mManga Load (10.1ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mManga Load (1.0ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "mangas" ("id", "title", "title_traduction", "realise_date", "tome_number", "genre_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["id", 2], ["title", "GTO"], ["title_traduction", "GTO traduit"], ["realise_date", "2018-02-16"], ["tome_number", 21], ["genre_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m

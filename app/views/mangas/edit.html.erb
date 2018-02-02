@@ -1,0 +1,25 @@
+<h1>Edition d'un genre de manga</h1>
+
+<%= form_with(model: manga) do |form| %>
+	
+	<div class="field">
+			<%= form.label :title, 'Titre' %>
+			<%= form.text_field :title %>
+		</div>
+		<div class="field">
+			<%= form.label :title_traduction, 'Titre traduction' %>
+			<%= form.text_field :title_traduction %>
+		</div>
+		<div class="field">
+			<%= form.label :realise_date, 'Date de création' %>
+			<%= form.date_field :realise_date %>
+		</div>
+		<div class="field">
+			<%= form.label :tome_number, 'Nombre de tome' %>
+			<%= form.text_field :tome_number %>
+		</div>
+		<div class="actions">
+			<%= form.submit 'Enregistrer' %>
+		</div>
+
+<% end -%>
