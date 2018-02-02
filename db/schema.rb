@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180127000313) do
-
-  create_table "add_genre_id_to_mangas", force: :cascade do |t|
-  end
+ActiveRecord::Schema.define(version: 20180124072712) do
 
   create_table "auteurs", force: :cascade do |t|
     t.string "first_name"
@@ -32,20 +29,17 @@ ActiveRecord::Schema.define(version: 20180127000313) do
     t.string "url"
   end
 
-# Could not dump table "mangas" because of following StandardError
-#   Unknown type 'String' for column 'genre_name'
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "pw"
-  end
-
-  create_table "utilisateurs", force: :cascade do |t|
-    t.string "login"
-    t.string "pw"
-    t.string "firstName"
-    t.string "lastName"
-    t.date "birthday"
+  create_table "mangas", force: :cascade do |t|
+    t.string "title"
+    t.string "title_traduction"
+    t.date "realise_date"
+    t.integer "tome_number"
+    t.integer "genre_id"
+    t.integer "image_id"
+    t.integer "auteur_id"
+    t.index ["auteur_id"], name: "index_mangas_on_auteur_id"
+    t.index ["genre_id"], name: "index_mangas_on_genre_id"
+    t.index ["image_id"], name: "index_mangas_on_image_id"
   end
 
 end

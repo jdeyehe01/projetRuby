@@ -7007,3 +7007,405 @@ Processing by MangasController#index as HTML
 Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.7ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateManga (20180110153400)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "mangas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "title_traduction" varchar, "realise_date" date, "tome_number" integer)[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110153400"]]
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateGenre (20180110193358)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "genres" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "description" varchar)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110193358"]]
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAuteur (20180110193408)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "auteurs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "birthday" date)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110193408"]]
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddGenreIdToMangas (20180120223519)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "mangas" ADD "genre_id" integer[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX "index_mangas_on_genre_id" ON "mangas" ("genre_id")[0m
+  [1m[35mSQL (3.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180120223519"]]
+  [1m[35m (12.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateImage (20180124001814)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "url" varchar)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180124001814"]]
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddImageIdToMangas (20180124002702)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "mangas" ADD "image_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_mangas_on_image_id" ON "mangas" ("image_id")[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180124002702"]]
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAuteurIdToManga (20180124072712)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (4.9ms)[0m  [1m[35mALTER TABLE "mangas" ADD "auteur_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_mangas_on_image_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_mangas_on_image_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_mangas_on_auteur_id" ON "mangas" ("auteur_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180124072712"]]
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20180127000313)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "name" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateManga (20180110153400)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "mangas" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "title_traduction" varchar, "realise_date" date, "tome_number" integer)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110153400"]]
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateGenre (20180110193358)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "genres" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "age" integer, "description" varchar)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110193358"]]
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAuteur (20180110193408)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "auteurs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "birthday" date)[0m
+  [1m[35mSQL (6.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180110193408"]]
+  [1m[35m (5.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddGenreIdToMangas (20180120223519)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "mangas" ADD "genre_id" integer[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX "index_mangas_on_genre_id" ON "mangas" ("genre_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180120223519"]]
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateImage (20180124001814)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "url" varchar)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180124001814"]]
+  [1m[35m (9.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddImageIdToMangas (20180124002702)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "mangas" ADD "image_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_mangas_on_image_id" ON "mangas" ("image_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180124002702"]]
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAuteurIdToManga (20180124072712)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "mangas" ADD "auteur_id" integer[0m
+  [1m[35m (0.6ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_mangas_on_image_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_mangas_on_image_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_mangas_on_auteur_id" ON "mangas" ("auteur_id")[0m
+  [1m[35mSQL (4.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180124072712"]]
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-02-02 17:49:49.983357"], ["updated_at", "2018-02-02 17:49:49.983357"]]
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_mangas_on_auteur_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_mangas_on_auteur_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_mangas_on_image_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_mangas_on_image_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_mangas_on_genre_id' AND type='index'
+[0m
+Started GET "/mangas" for 127.0.0.1 at 2018-02-02 18:50:06 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 98ms (Views: 21.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/mangas/new" for 127.0.0.1 at 2018-02-02 18:50:12 +0100
+Processing by MangasController#new as HTML
+  Rendering mangas/new.html.erb within layouts/application
+  Rendered mangas/new.html.erb within layouts/application (34.4ms)
+Completed 200 OK in 59ms (Views: 41.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/mangas" for 127.0.0.1 at 2018-02-02 18:51:04 +0100
+Processing by MangasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nFJF+ZkIhowJ+WqjKrzeuNmmOjVGxLTS+WgWHSX9WzQ6Tnh6vz958R9V2nnTAmWJelf6PM+UBn7Y4eW9Vr7R4w==", "manga"=>{"tilte"=>"GTO", "title_traduction"=>"GTO traduit", "realise_date"=>"2018-02-15", "tome_number"=>"21"}, "commit"=>"Enregistrer"}
+Completed 500 Internal Server Error in 302ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `manga_params' for #<MangasController:0x00007f603805bb68>
+Did you mean?  manga_path):
+  
+app/controllers/mangas_controller.rb:15:in `create'
+Started POST "/mangas" for 127.0.0.1 at 2018-02-02 18:53:46 +0100
+Processing by MangasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nFJF+ZkIhowJ+WqjKrzeuNmmOjVGxLTS+WgWHSX9WzQ6Tnh6vz958R9V2nnTAmWJelf6PM+UBn7Y4eW9Vr7R4w==", "manga"=>{"tilte"=>"GTO", "title_traduction"=>"GTO traduit", "realise_date"=>"2018-02-15", "tome_number"=>"21"}, "commit"=>"Enregistrer"}
+Unpermitted parameter: :tilte
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering mangas/new.html.erb within layouts/application
+  Rendered mangas/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 157ms (Views: 10.3ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/mangas" for 127.0.0.1 at 2018-02-02 18:54:16 +0100
+Processing by MangasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eH7at1/NelEWc+CujMfz0x9WGboVXK0wUiM9GrTu98XeYuc0efqFLADfUHR1eUjivKfZs5wMH5xzqs66x619Eg==", "manga"=>{"tilte"=>"GTO", "title_traduction"=>"GTO traduit", "realise_date"=>"2018-02-15", "tome_number"=>"21"}, "commit"=>"Enregistrer"}
+Unpermitted parameter: :tilte
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering mangas/new.html.erb within layouts/application
+  Rendered mangas/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 30ms (Views: 18.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/mangas/new" for 127.0.0.1 at 2018-02-02 18:55:41 +0100
+Processing by MangasController#new as HTML
+  Rendering mangas/new.html.erb within layouts/application
+  Rendered mangas/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 16ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/mangas" for 127.0.0.1 at 2018-02-02 18:55:57 +0100
+Processing by MangasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a09BIYjKJM8wXlJ/OXFtrTyB3Fe3d2TqL6rRgw8vvMTNU3yirv3bsiby4qXAz9acn3AcXj4n1kYOIyIjfGw2Ew==", "manga"=>{"title"=>"GTO", "title_traduction"=>"GTO traduit", "realise_date"=>"2018-02-16", "tome_number"=>"21"}, "commit"=>"Enregistrer"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering mangas/new.html.erb within layouts/application
+  Rendered mangas/new.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 36ms (Views: 21.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mangas" for 127.0.0.1 at 2018-02-02 18:57:07 +0100
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  Rendered mangas/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/mangas/new" for 127.0.0.1 at 2018-02-02 18:57:11 +0100
+Processing by MangasController#new as HTML
+  Rendering mangas/new.html.erb within layouts/application
+  Rendered mangas/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/mangas" for 127.0.0.1 at 2018-02-02 18:57:21 +0100
+Processing by MangasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4mZZg73lYdp6QzFMZCFaXNSzBFVpVtjbA6kg106y6QlEemQAm9Kep2zvgZadn+Ftd0LEXOAGanciINN3PfFj3g==", "manga"=>{"title"=>"GTO", "title_traduction"=>"GTO traduit", "tome_number"=>"21"}, "commit"=>"Enregistrer"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering mangas/new.html.erb within layouts/application
+  Rendered mangas/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 17ms (Views: 7.8ms | ActiveRecord: 0.1ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.7ms)[0m  [1m[32mINSERT INTO "mangas" ("title", "title_traduction", "tome_number") VALUES (?, ?, ?)[0m  [["title", "GTO"], ["title_traduction", "GTO traduit"], ["tome_number", 21]]
+  [1m[35m (22.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/mangas" for 127.0.0.1 at 2018-02-02 18:59:33 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#index as HTML
+  Rendering mangas/index.html.erb within layouts/application
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT "mangas".* FROM "mangas"[0m
+  [1m[36mGenre Load (0.4ms)[0m  [1m[34mSELECT  "genres".* FROM "genres" WHERE "genres"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  Rendered mangas/index.html.erb within layouts/application (60.8ms)
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 1.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Genre with 'id'=):
+  
+app/views/mangas/index.html.erb:17:in `block in _app_views_mangas_index_html_erb__1136659411547203229_35698780'
+app/views/mangas/index.html.erb:16:in `_app_views_mangas_index_html_erb__1136659411547203229_35698780'
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" ORDER BY "mangas"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[31mDELETE FROM "mangas" WHERE "mangas"."id" = ?[0m  [["id", 1]]
+  [1m[35m (12.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/mangas/new" for 127.0.0.1 at 2018-02-02 19:00:13 +0100
+Started GET "/mangas/new" for 127.0.0.1 at 2018-02-02 19:00:13 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MangasController#new as HTML
+Processing by MangasController#new as HTML
+  Rendering mangas/new.html.erb within layouts/application
+  Rendering mangas/new.html.erb within layouts/application
+  Rendered mangas/new.html.erb within layouts/application (13.7ms)
+  Rendered mangas/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 83ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 77ms (Views: 23.6ms | ActiveRecord: 4.9ms)
+
+
+Started POST "/mangas" for 127.0.0.1 at 2018-02-02 19:00:23 +0100
+Processing by MangasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ewULie1wJFG7l7zZmHgz7GZGg7blJ6WJqqnYeGQO7ufdGTYKy0fbLK07DANhxojdxbdDv2x3FyWLICvYF01kMA==", "manga"=>{"title"=>"GTO", "title_traduction"=>"GTO traduit", "realise_date"=>"2018-02-16", "tome_number"=>"21"}, "commit"=>"Enregistrer"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "mangas" ("title", "title_traduction", "realise_date", "tome_number") VALUES (?, ?, ?, ?)[0m  [["title", "GTO"], ["title_traduction", "GTO traduit"], ["realise_date", "2018-02-16"], ["tome_number", 21]]
+  [1m[35m (105.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/mangas/2
+Completed 302 Found in 113ms (ActiveRecord: 107.5ms)
+
+
+Started GET "/mangas/2" for 127.0.0.1 at 2018-02-02 19:00:23 +0100
+Processing by MangasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mManga Load (0.2ms)[0m  [1m[34mSELECT  "mangas".* FROM "mangas" WHERE "mangas"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 37ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::UnknownFormat (MangasController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.4) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.4) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.4) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.4) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
