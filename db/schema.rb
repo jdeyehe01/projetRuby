@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180202192033) do
+
+ActiveRecord::Schema.define(version: 20180224220036) do
 
   create_table "auteurs", force: :cascade do |t|
     t.string "first_name"
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180202192033) do
     t.index ["image_id"], name: "index_mangas_on_image_id"
   end
 
+
   create_table "models", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -57,6 +59,12 @@ ActiveRecord::Schema.define(version: 20180202192033) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_models_on_email", unique: true
     t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
+
+  create_table "spaces", force: :cascade do |t|
+    t.integer "genre_id"
+    t.integer "manga_id"
+    t.integer "auteur_id"
+
   end
 
 end

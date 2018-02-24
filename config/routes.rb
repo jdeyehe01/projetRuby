@@ -15,5 +15,8 @@ Rails.application.routes.draw do
 
   root to: 'auteurs#index'
   resources :auteurs
+
+  root to: 'spaces#index'
+  resources :spaces
   
 end
