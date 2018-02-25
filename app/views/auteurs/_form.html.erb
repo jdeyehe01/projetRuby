@@ -30,7 +30,7 @@
 
   <div class="field">
     <%= form.label :birthday, 'Date de naissance' %>
-    <%= form.text_field :birthday, id: :auteur_birthday, class: "", style: "position:absolute; right:0;" %>
+    <%= form.date_field :birthday, id: :auteur_birthday, class: "", style: "position:absolute; right:0;" %>
   </div>
 
   </div>
@@ -39,7 +39,11 @@
   <center>
     <div class="actions" style="display:inline-block; width: 100%;">
 
-    <hr>
+      <hr>
+      
+      <%= link_to '<button type="button" class="btn btn-primary">
+      <strong>Retour</strong></button>'.html_safe, auteurs_path %>
+
       <%= form.submit 'Enregistrer', class: "btn btn-success", style: "font-weight:bold" %>
     
     </div>

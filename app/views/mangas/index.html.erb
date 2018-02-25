@@ -1,36 +1,34 @@
 <h1>Liste des mangas</h1>
 
-
+<hr>
 <tbody>
 		
 <% @mangas.each do |manga| %>
-			<%@genre = Genre.find(manga.genre_id) %>
-			<%@image = Image.find(manga.image_id) %>
-			<%@auteur = Auteur.find(manga.auteur_id) %>
+	<%@genre = Genre.find(manga.genre_id) %>
+	<%@image = Image.find(manga.image_id) %>
+	<%@auteur = Auteur.find(manga.auteur_id) %>
 
 			
-		
-		<div class="manga">
-			<p>
-				<%= image_tag @image.url, alt: @image.name , style:"height: 7%; width: 7%;" %> 	
-				<%= manga.title %>
-				<%= manga.title_traduction %>
-				<%= manga.realise_date %>
-				<%= manga.tome_number %> tomes 
-				<%= link_to @genre.name , @genre %>
-				<%= link_to @auteur.first_name , @auteur %>
-				<%= link_to 'Afficher', manga %>
-				<%= link_to 'Supprimer', manga, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %>
+	<div class="col-sm-4">
+			
+		<%= image_tag @image.url, alt: @image.name , style:"width: 26%; vertical-align: baseline;" %> 
+		<p style="display:inline-block;">
+			<%= manga.title %> <br>
+			<%= manga.title_traduction %> <br> 
+			Sortie le : <%= manga.realise_date %> <br>
+			Volumes : <%= manga.tome_number %> tomes <br>
+			Genre : <%= link_to @genre.name , @genre %> <br>
+			Ecrit par : <%= link_to @auteur.last_name , @auteur %> <br>
+			<%= link_to 'Afficher', manga %>
+			<%= link_to 'Supprimer', manga, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %>
+		</p>
 
-<%= form_tag "/spaces/#{manga.id}", method: "patch" do %>
-  <input type="submit" value="Ajouter à mon espace" />
+		<%= form_tag "/spaces/#{manga.id}", method: "patch" do %>
+		<input type="submit" class="btn btn-primary" value="Ajouter à mon espace" />
  
-<% end %>
-
-
- 	
-			</p>
-		</div>
-
 		<% end %>
-	</tbody>
+	
+	</div>
+
+	<% end %>
+</tbody>

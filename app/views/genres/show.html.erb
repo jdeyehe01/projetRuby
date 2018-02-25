@@ -1,7 +1,14 @@
 <h1>Affichage d'un genre</h1>
 
+<hr>
 <p>Nom : <%= @genre.name %></p>
-<p>Tranche d'âge : <%= @genre.age %></p>
-<p>Description: <%= @genre.description %></p>
+<p>Tranche d'âge : <%= @genre.age %> ans</p>
+<p>Description : <%= @genre.description %></p>
 
-<p><%= link_to 'Liste des genres', genres_path %></p>
+<hr>
+
+<%= link_to '<button type="button" class="btn btn-primary">
+<strong>Retour</strong></button>'.html_safe, genres_path %>
+
+<%= link_to '<button type="button" class="btn btn-success">
+<strong>Modifier</strong></button>'.html_safe, edit_genre_path(@genre) %>

@@ -7,35 +7,56 @@
   </p>
 
   <%= form_with(model: genre, local: true, :class => "table table-hover") do |form| %>
-	
-	<div class="field">
-				
-		<div class="field">
-		<%= form.label :name, 'Nom' %>
-		<%= form.text_field :name %>
-	</div>
 
-	<div class="field">
-		<%= form.label :age, "Tranche d'âge" %>
-		<%= form.text_field :age %>
-	</div>
+  <hr>
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4">
 
-	<div class="field">
-		<%= form.label :description, 'Description' %>
-		<%= form.text_area(:description, rows: 15)%>
-	</div>
-	</div>
+  <div class="field">
+    <%= form.label :name, 'Nom' %>
+    <%= form.text_field :name, style: "position:absolute; right:0;" %>
+  </div>
 
-	<div class="actions">
-		<%= form.submit 'Enregistrer' %>
-	</div>
+  <br>
 
-<% end -%>
+  <div class="field">
+    <%= form.label :age, "Tranche d'âge" %>
+    <%= form.text_field :age, style: "position:absolute; right:0;" %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <%= form.label :description, 'Description' %>
+  </div>
+
+  </div>
+  <div class="col-lg-4"></div>
+
+  <center><%= form.text_area(:description, rows: 5, style: "width:380px; display: inline-block; margin: 0px 25px 0px 45px;") %></center>
+
+  <center>
+    <div class="actions" style="display:inline-block; width: 100%;">
+
+    	<hr>
+
+    	<%= link_to '<button type="button" class="btn btn-primary">
+		<strong>Retour</strong></button>'.html_safe, genres_path %>
+
+    	<%= form.submit 'Enregistrer', class: "btn btn-success", style: "font-weight:bold" %>
+    
+    </div>
+  </center>
+  
+<% end %>
+
+
 <% else %>
-
 <p class="navbar-text pull-right">
+
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 
-</p>
+  </p>
+
 <% end %>

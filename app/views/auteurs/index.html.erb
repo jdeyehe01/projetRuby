@@ -1,5 +1,6 @@
 <h1>Liste des auteurs</h1>
 
+<hr>
 <table class="table table-hover">
 	<thead>
 		<th>Nom</th>
@@ -12,15 +13,12 @@
 				<td><%= auteur.last_name %></td>
 				<td><%= auteur.first_name %></td>
 				<td><%= auteur.birthday %></td>
-				<td><%= link_to '
-				<button type="button" class="btn btn-primary"><strong>Afficher</strong></button>
-				'.html_safe, auteur %></td>
-				<td><%= link_to '
-				<button type="button" class="btn btn-primary"><strong>Modifier</strong></button>
-				'.html_safe, edit_auteur_path(auteur) %></td>
-				<td><%= link_to '
-				<button type="button" class="btn btn-primary"><strong>Supprimer</strong></button>
-				'.html_safe, auteur, method: :destroy, data: { confirm: 'Etes-vous sûr ?' } %></td>
+				<td><%= link_to '<button type="button" class="btn btn-primary">
+				<strong>Afficher</strong></button>'.html_safe, auteur %></td>
+				<td><%= link_to '<button type="button" class="btn btn-primary">
+				<strong>Modifier</strong></button>'.html_safe, edit_auteur_path(auteur) %></td>
+				<td><%= link_to '<button type="button" class="btn btn-primary">
+				<strong>Supprimer</strong></button>'.html_safe, auteur, method: :delete, data: { confirm: 'Etes-vous sûr ?' } %></td>
 			</tr>
 		<% end %>
 	</tbody>
