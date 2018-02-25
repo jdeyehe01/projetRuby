@@ -23,6 +23,7 @@
 	<%@auteur = Auteur.find(manga.auteur_id) %>
 
 			
+<<<<<<< HEAD
 	<div class="col-sm-4">
 			
 		<%= image_tag @image.url, alt: @image.name , style:"width: 26%; vertical-align: baseline;" %> 
@@ -41,6 +42,30 @@
 
 		<%= form_tag "/spaces/#{manga.id}", method: "patch" do %>
 		<input type="submit" class="btn btn-primary" value="Ajouter à mes favoris" style="font-weight:bold;" />
+=======
+		
+		<div class="manga">
+			<p>
+				<%= image_tag @image.url, alt: @image.name , style:"height: 7%; width: 7%;" %> 	
+				<%= manga.title %>
+				<%= manga.title_traduction %>
+				<%= manga.realise_date %>
+				<%= manga.tome_number %> tomes 
+				<%= link_to @genre.name , @genre %>
+				<%= link_to @auteur.first_name , @auteur %>
+				<td><%= link_to '
+				<button type="button" class="btn btn-primary"><strong>Afficher</strong></button>
+				'.html_safe, manga %></td>
+				<td><%= link_to '
+				<button type="button" class="btn btn-primary"><strong>Modifier</strong></button>
+				'.html_safe, edit_manga_path(manga) %></td>
+				<td><%= link_to '
+				<button type="button" class="btn btn-primary"><strong>Supprimer</strong></button>
+				'.html_safe, manga, method: :destroy, data: { confirm: 'Etes-vous sûr ?' } %></td>
+
+<%= form_tag "/spaces/#{manga.id}", method: "patch" do %>
+  <input type="submit" value="Ajouter à mon espace" />
+>>>>>>> Ajout d'un nouveau manga et affichage
  
 		<% end %>
 
@@ -52,6 +77,13 @@
 
 		<% end %>
 	</tbody>
+	<hr>
+<p>
+	<center>
+		<%= link_to '<button type="button" class="btn btn-success"><strong>Ajouter un manga</strong>
+		</button>'.html_safe, new_manga_path %>
+	</center>
+</p>
 
 
 <% else %>

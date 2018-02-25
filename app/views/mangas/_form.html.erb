@@ -1,0 +1,83 @@
+<% if user_signed_in? %>
+
+
+<p class="navbar-text pull-right">
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Editer le profil', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+
+</p>
+
+<%= form_with(model: @manga) do |form| %>
+
+<% if @manga.genre_id  == nil && @manga.auteur_id ==nil %>
+
+<%@genre = Genre.all %>
+<%@auteur = Auteur.all %>
+<% else %>
+
+<%@genre = Genre.find(@manga.genre_id) %>
+<%@auteur = Auteur.find(@manga.auteur_id) %>
+
+<% end %>
+
+	<div class="field">
+		<div class="field">
+			<%= form.label :title, 'Titre' %>
+			<%= form.text_field :title %>
+		</div>
+
+		<div class="field">
+			<%= form.label :title_traduction, 'Titre traduction' %>
+			<%= form.text_field :title_traduction %>
+		</div>
+
+		<div class="field">
+			<%= form.label :realise_date, 'Date de création' %>
+			<%= form.date_field :realise_date %>
+		</div>
+
+		<div class="field">
+			<%= form.label :tome_number, 'Nombre de tome' %>
+			<%= form.text_field :tome_number %>
+		</div>
+
+		
+		<div class="field">
+			<%= form.label :genre_id, 'Genre' %>
+			<%= form.collection_select :genre_id,Genre.all,:id, :name, prompt: true%> 			
+		</div>
+
+
+		<div class="field">
+			<%= form.label :auteur_id, 'Auteur' %>
+			<%= form.collection_select :auteur_id, Auteur.all,:id , :first_name , prompt: true%>
+		
+		</div>
+
+		<div class="field">
+			<%= form.label :image_id, 'Image' %>
+			<%= form.collection_select :image_id, Image.all,:id , :name, prompt: true%>
+		
+		</div>
+
+			
+		</div>
+
+		<div class="actions">
+			<%= form.submit 'Enregistrer' %>
+		</div>
+
+
+	</div>
+<% end %>
+
+<% else %>
+
+<p class="navbar-text pull-right">
+
+  <%= link_to "S'enregistrer", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "S'identifier", new_user_session_path, :class => 'navbar-link'  %>
+
+</p>
+<% end %>

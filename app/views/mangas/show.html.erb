@@ -1,0 +1,50 @@
+<h1>Affichage d'un manga</h1>
+
+<% @manga = Manga.find(params[:id]) %>
+<p>
+
+
+<%@genre = Genre.find(@manga.genre_id) %>
+<%@image = Image.find(@manga.image_id) %>
+<%@auteur = Auteur.find(@manga.auteur_id) %>
+
+<%= image_tag @image.url, alt: @image.name , style:"height: 7%; width: 7%;" %> 	
+		<p>
+				<strong>Titre en japonais :</strong>
+				<%= @manga.title %>
+		</p>
+
+		<p>
+				<strong>Titre en français :</strong>
+					<%= @manga.title_traduction %>
+
+		<p>
+				<strong>Date de sortie :</strong>
+				<%= @manga.realise_date %>
+		</p>
+
+		<p>
+				<strong>Nombre de tomes : </strong>
+				<%= @manga.tome_number %> tomes 
+		</p>
+
+		<p>
+				<strong>Genre :</strong>
+				<%= link_to @genre.name , @genre %>
+		</p>
+
+		<p>
+				<strong>Auteur :</strong>
+				<%= link_to @auteur.first_name , @auteur %>
+		</p>		
+		
+</p>
+
+<p>
+	<%= link_to '
+<button type="button" class="btn btn-primary"><strong>Retour</strong></button>
+'.html_safe, mangas_path %>
+
+<%= link_to '
+<button type="button" class="btn btn-success"><strong>Modifier</strong></button>
+'.html_safe, edit_manga_path(@manga) %>

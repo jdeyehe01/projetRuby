@@ -1,45 +1,5 @@
-<% if user_signed_in? %>
+<h1>Ajout d'un manga</h1>
 
 
-<p class="navbar-text pull-right">
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Editer le profil', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 
-</p>
-
-<h1>Ajout d'un pokémon</h1>
-
-<%= form_with(model: @manga) do |form| %>
-	<div class="field">
-		<div class="field">
-			<%= form.label :title, 'Titre' %>
-			<%= form.text_field :title %>
-		</div>
-		<div class="field">
-			<%= form.label :title_traduction, 'Titre traduction' %>
-			<%= form.text_field :title_traduction %>
-		</div>
-		<div class="field">
-			<%= form.label :realise_date, 'Date de création' %>
-			<%= form.date_field :realise_date %>
-		</div>
-		<div class="field">
-			<%= form.label :tome_number, 'Nombre de tome' %>
-			<%= form.text_field :tome_number %>
-		</div>
-		<div class="actions">
-			<%= form.submit 'Enregistrer' %>
-		</div>
-	</div>
-<% end %>
-
-<% else %>
-
-<p class="navbar-text pull-right">
-
-  <%= link_to "S'enregistrer", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "S'identifier", new_user_session_path, :class => 'navbar-link'  %>
-
-</p>
-<% end %>
+<%= render 'form', manga: @manga %>
