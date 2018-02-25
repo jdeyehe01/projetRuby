@@ -30,10 +30,15 @@ class AuteursController < ApplicationController
 		end
 	end
 
+
+
 	def destroy
-		@auteur.destroy
-		redirect_to(auteurs_path)
-	end
+    @auteur.destroy
+    respond_to do |format|
+      format.html { redirect_to types_url, notice: 'Type was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
 	private
 

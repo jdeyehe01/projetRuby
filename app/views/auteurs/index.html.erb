@@ -12,14 +12,23 @@
 				<td><%= auteur.last_name %></td>
 				<td><%= auteur.first_name %></td>
 				<td><%= auteur.birthday %></td>
-				<td><%= link_to 'Afficher', auteur %></td>
-				<td><%= link_to 'Modifier', edit_auteur_path(auteur) %></td>
-				<td><%= link_to 'Supprimer', auteur, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %></td>
+				<td><%= link_to '
+				<button type="button" class="btn btn-primary"><strong>Afficher</strong></button>
+				'.html_safe, auteur %></td>
+				<td><%= link_to '
+				<button type="button" class="btn btn-primary"><strong>Modifier</strong></button>
+				'.html_safe, edit_auteur_path(auteur) %></td>
+				<td><%= link_to '
+				<button type="button" class="btn btn-primary"><strong>Supprimer</strong></button>
+				'.html_safe, auteur, method: :destroy, data: { confirm: 'Etes-vous sûr ?' } %></td>
 			</tr>
 		<% end %>
 	</tbody>
 </table>
-
+<hr>
 <p>
-	<%= link_to 'Ajouter un auteur', new_auteur_path %>
+	<center>
+		<%= link_to '<button type="button" class="btn btn-success"><strong>Ajouter un auteur</strong>
+		</button>'.html_safe, new_auteur_path %>
+	</center>
 </p>

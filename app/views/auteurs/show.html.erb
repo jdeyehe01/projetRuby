@@ -15,5 +15,10 @@
   <%= @auteur.birthday %>
 </p>
 
-<%= link_to 'Modifier', edit_auteur_path(@auteur) %> |
-<%= link_to 'Retour', auteurs_path %>
+<%= link_to '
+<button type="button" class="btn btn-success"><strong>Modifier</strong></button>
+'.html_safe, edit_auteur_path(@auteur) %>
+
+<%= link_to '
+<button type="button" class="btn btn-primary"><strong>Retour</strong></button>
+'.html_safe, auteurs_path %>
