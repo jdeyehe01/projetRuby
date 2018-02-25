@@ -1,63 +1,46 @@
 <% if user_signed_in? %>
 
+  <%= form_with(model: auteur, local: true, :class => "table table-hover") do |form| %>
 
-<p class="navbar-text pull-right">
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <hr>
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
 
-</p>
-
-<%= form_with(model: auteur, local: true, :class => "table table-hover") do |form| %>
-
-<hr>
-  <div class="col-lg-4"></div>
-  <div class="col-lg-4">
-
-  <div class="field">
-    <%= form.label :first_name, 'Prénom' %>
-    <%= form.text_field :first_name, id: :auteur_first_name, class: "", style: "position:absolute; right:0;" %>
-  </div>
-
-  <br>
-
-  <div class="field">
-    <%= form.label :last_name, 'Nom de famille' %>
-    <%= form.text_field :last_name, id: :auteur_last_name, class: "", style: "position:absolute; right:0;" %>
-  </div>
-
-  <br>
-
-  <div class="field">
-    <%= form.label :birthday, 'Date de naissance' %>
-    <%= form.date_field :birthday, id: :auteur_birthday, class: "", style: "position:absolute; right:0;" %>
-  </div>
-
-  </div>
-  <div class="col-lg-4"></div>
-
-  <center>
-    <div class="actions" style="display:inline-block; width: 100%;">
-
-      <hr>
-      
-      <%= link_to '<button type="button" class="btn btn-primary">
-      <strong>Retour</strong></button>'.html_safe, auteurs_path %>
-
-      <%= form.submit 'Enregistrer', class: "btn btn-success", style: "font-weight:bold" %>
-    
+    <div class="field">
+      <%= form.label :first_name, 'Prénom' %>
+      <%= form.text_field :first_name, id: :auteur_first_name, class: "", style: "position:absolute; right:0;" %>
     </div>
-  </center>
-  
-<% end %>
 
+    <br>
 
-<% else %>
-<p class="navbar-text pull-right">
+    <div class="field">
+      <%= form.label :last_name, 'Nom de famille' %>
+      <%= form.text_field :last_name, id: :auteur_last_name, class: "", style: "position:absolute; right:0;" %>
+    </div>
 
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+    <br>
 
-  </p>
+    <div class="field">
+      <%= form.label :birthday, 'Date de naissance' %>
+      <%= form.date_field :birthday, id: :auteur_birthday, class: "", style: "position:absolute; right:0;" %>
+    </div>
+
+    </div>
+    <div class="col-lg-4"></div>
+
+    <center>
+      <div class="actions" style="display:inline-block; width: 100%;">
+
+        <hr>
+        
+        <%= link_to '<button type="button" class="btn btn-primary">
+        <strong>Retour</strong></button>'.html_safe, auteurs_path %>
+
+        <%= form.submit 'Enregistrer', class: "btn btn-success", style: "font-weight:bold" %>
+      
+      </div>
+    </center>
+    
+  <% end %>
 
 <% end %>
