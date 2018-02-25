@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180124072712) do
+ActiveRecord::Schema.define(version: 20180224235310) do
 
   create_table "auteurs", force: :cascade do |t|
     t.string "first_name"
@@ -40,6 +40,45 @@ ActiveRecord::Schema.define(version: 20180124072712) do
     t.index ["auteur_id"], name: "index_mangas_on_auteur_id"
     t.index ["genre_id"], name: "index_mangas_on_genre_id"
     t.index ["image_id"], name: "index_mangas_on_image_id"
+  end
+
+  create_table "spaces", force: :cascade do |t|
+    t.integer "manga_id"
+    t.integer "auteur_id"
+  end
+
+  create_table "user_mangas", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_user_mangas_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_user_mangas_on_reset_password_token", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "login"
+    t.string "password"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

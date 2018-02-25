@@ -1,0 +1,63 @@
+<h1>Votre espace</h1>
+
+<p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+</p>
+
+<h2>Vos mangas préférés</h2>
+
+<table class="table table-hover">
+	<thead>
+		
+		<th>Titre</th>
+	
+	</thead>
+	<tbody>
+		<% @spaces.each do |space| %>
+
+		<% if space.auteur_id != nil %>
+		<% @manga = Manga.find(space.manga_id)%>
+			<tr>				
+				<td><%= @manga.title_traduction%></td>
+				<td><%= link_to 'Afficher'%></td>
+				<td><%= link_to 'Supprimer', space, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %></td>
+	
+			</tr>
+			<% end %>
+		<% end %>
+	</tbody>
+</table>
+
+<h2>Vos auteurs préférés</h2>
+<table class="table table-hover">
+	<thead>
+		
+		<th>Titre</th>
+	
+	</thead>
+	<tbody>
+		<% @spaces.each do |space| %>
+		<% if space.auteur_id != nil %>
+		<% @auteur = Auteur.find(space.auteur_id) %> 
+		
+			<tr>
+				<td><%= @auteur.first_name%></td>
+				<td><%= link_to 'Afficher'%></td>
+				<td><%= link_to 'Supprimer', space, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %></td>
+	
+			</tr>
+		
+
+			<% end %>
+		<% end %>
+	</tbody>
+</table>
+
+
