@@ -15,18 +15,23 @@
 				<td><%= auteur.birthday %></td>
 				<td><%= link_to '<button type="button" class="btn btn-primary">
 				<strong>Afficher</strong></button>'.html_safe, auteur %></td>
-				<td><%= link_to '<button type="button" class="btn btn-primary">
-				<strong>Modifier</strong></button>'.html_safe, edit_auteur_path(auteur) %></td>
-				<td><%= link_to '<button type="button" class="btn btn-primary">
-				<strong>Supprimer</strong></button>'.html_safe, auteur, method: :delete, data: { confirm: 'Etes-vous sûr ?' } %></td>
+				<% if user_signed_in? %>
+					<td><%= link_to '<button type="button" class="btn btn-primary">
+					<strong>Modifier</strong></button>'.html_safe, edit_auteur_path(auteur) %></td>
+					<td><%= link_to '<button type="button" class="btn btn-primary">
+					<strong>Supprimer</strong></button>'.html_safe, auteur, method: :delete, data: { confirm: 'Etes-vous sûr ?' } %></td>
+				<% end %>
 			</tr>
 		<% end %>
 	</tbody>
 </table>
-<hr>
-<p>
-	<center>
-		<%= link_to '<button type="button" class="btn btn-success"><strong>Ajouter un auteur</strong>
-		</button>'.html_safe, new_auteur_path %>
-	</center>
-</p>
+
+<% if user_signed_in? %>
+	<hr>
+	<p>
+		<center>
+			<%= link_to '<button type="button" class="btn btn-success"><strong>Ajouter un auteur</strong>
+			</button>'.html_safe, new_auteur_path %>
+		</center>
+	</p>
+<% end %>

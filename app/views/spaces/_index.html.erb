@@ -2,7 +2,7 @@
 
 <p class="navbar-text pull-right">
 <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
+  Connecté en tant que : <strong><%= current_user.email %></strong>.
   <%= link_to 'Editer le profil', edit_user_registration_path, :class => 'navbar-link' %> |
   <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
@@ -27,12 +27,14 @@
 
 		<% if space.manga_id %>
 
-			<% @manga = Manga.find(space.manga_id)%>
+			<% @manga = Manga.find(space.manga_id) %>
 
 			<tr>				
 				<td><%= @manga.title_traduction%></td>
-				<td><%= link_to 'Afficher'%></td>
-				<td><%= link_to 'Supprimer', space, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %></td>
+				<td><%= link_to '<button type="button" class="btn btn-primary">
+				<strong>Afficher</strong></button>'.html_safe %></td>
+				<td><%= link_to '<button type="button" class="btn btn-danger">
+				<strong>Supprimer</strong></button>'.html_safe, space, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %></td>
 	
 			</tr>
 
@@ -46,3 +48,8 @@
 
 	</tbody>
 </table>
+
+<hr>
+
+<%= link_to '<button type="button" class="btn btn-primary">
+<strong>Retour</strong></button>'.html_safe, mangas_path %>
