@@ -125,3 +125,18 @@
 	<% end %>
 </tbody>
 
+
+	</tbody>
+
+
+<% else %>
+
+<p class="navbar-text pull-right">
+
+  <%= link_to "S'enregistrer", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "S'identifier", new_user_session_path, :class => 'navbar-link'  %>
+
+</p>
+<% end %>
+
+
