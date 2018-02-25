@@ -8,16 +8,13 @@ class SpacesController < ApplicationController
 	def create
 		@manga = Manga.find(params[:id])
 		@space = Space.create manga_id: @manga.id
-		if @space.save
-			redirect_to(space_path)
-		end
-
-		
+		redirect_to(space_path)
+			
 	end
 
 	def show
-		redirect_to(space_path)
-
+		@spaces = Space.all
+	
 	end
 
 	def destroy
