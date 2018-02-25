@@ -12,8 +12,7 @@ class MangasController < ApplicationController
 	end
 	def create
 
-		@manga = Manga.new(params.require(:manga).permit(:title, :title_traduction, :realise_date, :tome_number))
-		# @genre = Gnere.new(genre_params)
+		@manga = Manga.new(params.require(:manga).permit(:title, :title_traduction, :realise_date, :tome_number,:auteur_id,:genre_id,:image_id))
 
 		if @manga.save
 			redirect_to(@manga)

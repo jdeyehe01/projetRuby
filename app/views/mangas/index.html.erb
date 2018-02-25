@@ -33,8 +33,15 @@
 				<%= manga.tome_number %> tomes 
 				<%= link_to @genre.name , @genre %>
 				<%= link_to @auteur.first_name , @auteur %>
-				<%= link_to 'Afficher', manga %>
-				<%= link_to 'Supprimer', manga, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %>
+				<td><%= link_to '
+				<button type="button" class="btn btn-primary"><strong>Afficher</strong></button>
+				'.html_safe, manga %></td>
+				<td><%= link_to '
+				<button type="button" class="btn btn-primary"><strong>Modifier</strong></button>
+				'.html_safe, edit_manga_path(manga) %></td>
+				<td><%= link_to '
+				<button type="button" class="btn btn-primary"><strong>Supprimer</strong></button>
+				'.html_safe, manga, method: :destroy, data: { confirm: 'Etes-vous sûr ?' } %></td>
 
 <%= form_tag "/spaces/#{manga.id}", method: "patch" do %>
   <input type="submit" value="Ajouter à mon espace" />
@@ -48,6 +55,13 @@
 
 		<% end %>
 	</tbody>
+	<hr>
+<p>
+	<center>
+		<%= link_to '<button type="button" class="btn btn-success"><strong>Ajouter un manga</strong>
+		</button>'.html_safe, new_manga_path %>
+	</center>
+</p>
 
 
 <% else %>

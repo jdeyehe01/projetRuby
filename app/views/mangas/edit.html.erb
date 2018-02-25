@@ -1,0 +1,11 @@
+<h1>Edition d'un manga'</h1>
+
+<%= render 'form', manga: @manga %>
+
+<%= link_to '
+<button type="button" class="btn btn-primary"><strong>Retour</strong></button>
+'.html_safe, mangas_path %>
+
+<%= link_to '
+<button type="button" class="btn btn-primary"><strong>Afficher</strong></button>
+'.html_safe, @manga %>
