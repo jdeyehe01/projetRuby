@@ -1,41 +1,5 @@
 <h1>Liste des mangas</h1>
-<!--
-<table>
-	<thead>
-		<th>Manga</th>
-		<th>Titre</th>
-		<th>Titre traduit</th>
-		<th>Date de publication</th>
-		<th>Numéro de Tome</th>
-		<th>Genre</th>
-		<th>Auteur</th>
 
-	</thead>
-	<tbody>
-		
-		<% @mangas.each do |manga| %>
-			<%@genre = Genre.find(manga.genre_id) %>
-			<%@image = Image.find(manga.image_id) %>
-			<%@auteur = Auteur.find(manga.auteur_id) %>
-
-			
-			<tr>
-				<td><%= image_tag @image.url, alt: @image.name %> 				
-				<td><%= manga.title %>
-				<td><%= manga.title_traduction %>
-				<td><%= manga.realise_date %>
-				<td><%= manga.tome_number %> tomes 
-				<td><%= link_to @genre.name , @genre %>
-				<td><%= link_to @auteur.first_name , @auteur %>
-				<td><%= link_to 'Afficher', manga %>
-				<td><%= link_to 'Supprimer', manga, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %>
-			</tr>
-
-		<% end %>
-	</tbody>
-</table>
-
--->
 
 <tbody>
 		
@@ -57,6 +21,14 @@
 				<%= link_to @auteur.first_name , @auteur %>
 				<%= link_to 'Afficher', manga %>
 				<%= link_to 'Supprimer', manga, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %>
+
+<%= form_tag "/spaces/#{manga.id}", method: "patch" do %>
+  <input type="submit" value="Ajouter à mon espace" />
+ 
+<% end %>
+
+
+ 	
 			</p>
 		</div>
 

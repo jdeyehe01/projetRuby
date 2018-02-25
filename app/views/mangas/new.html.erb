@@ -1,3 +1,13 @@
+<% if user_signed_in? %>
+
+
+<p class="navbar-text pull-right">
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Editer le profil', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+
+</p>
+
 <h1>Ajout d'un pokémon</h1>
 
 <%= form_with(model: @manga) do |form| %>
@@ -22,4 +32,14 @@
 			<%= form.submit 'Enregistrer' %>
 		</div>
 	</div>
+<% end %>
+
+<% else %>
+
+<p class="navbar-text pull-right">
+
+  <%= link_to "S'enregistrer", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "S'identifier", new_user_session_path, :class => 'navbar-link'  %>
+
+</p>
 <% end %>

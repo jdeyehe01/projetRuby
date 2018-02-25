@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   post 'users/login' => 'users#check'
 
+  patch 'spaces/:id' => 'spaces#create'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'mangas#index'
   resources :mangas
@@ -15,5 +17,8 @@ Rails.application.routes.draw do
 
   root to: 'auteurs#index'
   resources :auteurs
+
+  root to: 'spaces#index'
+  resources :spaces
   
 end

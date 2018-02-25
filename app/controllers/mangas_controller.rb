@@ -37,4 +37,17 @@ class MangasController < ApplicationController
 		@manga.destroy
 		redirect_to(mangas_path)
 	end
+
+
+	def addSpace
+
+		if params[:addUserSpace]
+			@space = Space.new(4,1)
+			@sapce.save
+			redirect_to(spaces_path)
+		else
+			redirect_to(genres_params)
+		end		
+
+	end
 end
