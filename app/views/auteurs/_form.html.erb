@@ -1,24 +1,38 @@
 <%= form_with(model: auteur, local: true, :class => "table table-hover") do |form| %>
 
-<div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
+  <hr>
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4">
+
   <div class="field">
     <%= form.label :first_name, 'Prénom' %>
-    <%= form.text_field :first_name, id: :auteur_first_name %>
+    <%= form.text_field :first_name, id: :auteur_first_name, class: "", style: "position:absolute; right:0;" %>
   </div>
+
+  <br>
 
   <div class="field">
     <%= form.label :last_name, 'Nom de famille' %>
-    <%= form.text_field :last_name, id: :auteur_last_name %>
+    <%= form.text_field :last_name, id: :auteur_last_name, class: "", style: "position:absolute; right:0;" %>
   </div>
+
+  <br>
 
   <div class="field">
     <%= form.label :birthday, 'Date de naissance' %>
-    <%= form.text_field :birthday, id: :auteur_birthday %>
+    <%= form.text_field :birthday, id: :auteur_birthday, class: "", style: "position:absolute; right:0;" %>
   </div>
 
+  </div>
+  <div class="col-lg-4"></div>
+
   <center>
-    <div class="actions">
+    <div class="actions" style="display:inline-block; width: 100%;">
+
+    <hr>
       <%= form.submit 'Enregistrer', class: "btn btn-success", style: "font-weight:bold" %>
+    
     </div>
   </center>
+  
 <% end %>
