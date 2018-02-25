@@ -22,7 +22,12 @@
 <%= link_to '<button type="button" class="btn btn-primary">
 <strong>Retour</strong></button>'.html_safe, auteurs_path %>
 
+
 <% if user_signed_in? %>
 	<%= link_to '<button type="button" class="btn btn-success">
 	<strong>Modifier</strong></button>'.html_safe, edit_auteur_path(@auteur) %>
 <% end %>
+
+<%= link_to '<button type="button" class="btn btn-success">
+<strong>Modifier</strong></button>'.html_safe, edit_auteur_path(@auteur) %>
+

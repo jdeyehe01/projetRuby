@@ -10,7 +10,12 @@
 <%= link_to '<button type="button" class="btn btn-primary">
 <strong>Retour</strong></button>'.html_safe, genres_path %>
 
+
 <% if user_signed_in? %>
 	<%= link_to '<button type="button" class="btn btn-success">
 	<strong>Modifier</strong></button>'.html_safe, edit_genre_path(@genre) %>
 <% end %>
+
+<%= link_to '<button type="button" class="btn btn-success">
+<strong>Modifier</strong></button>'.html_safe, edit_genre_path(@genre) %>
+

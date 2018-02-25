@@ -17,17 +17,23 @@
 				<td><%= genre.description %></td>
 				<td><%= link_to '<button type="button" class="btn btn-primary">
 				<strong>Afficher</strong></button>'.html_safe, genre %></td>
+
 				<% if user_signed_in? %>
 					<td><%= link_to '<button type="button" class="btn btn-primary">
 					<strong>Editer</strong></button>'.html_safe, edit_genre_path(genre) %></td>
 					<td><%= link_to '<button type="button" class="btn btn-primary">
 					<strong>Supprimer</strong></button>'.html_safe, genre, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %></td>
 				<% end %>
+
+				<td><%= link_to '<button type="button" class="btn btn-primary">
+				<strong>Editer</strong></button>'.html_safe, edit_genre_path(genre) %></td>
+				<td><%= link_to '<button type="button" class="btn btn-primary">
+				<strong>Supprimer</strong></button>'.html_safe, genre, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %></td>
+
 			</tr>
 		<% end %>
 	</tbody>
 </table>
-
 
 <% if user_signed_in? %>
 	<hr>
@@ -39,8 +45,20 @@
 	</p>
 <% end %>
 
+<hr>
+
+
 <p>
+
 	<%= link_to 'Ajouter un genre' , new_genre_path%>
+</p>
+
+
+
+	<center>
+		<%= link_to '<button type="button" class="btn btn-success"><strong>Ajouter un genre</strong>
+		</button>'.html_safe, new_genre_path %>
+	</center>
 </p>
 
 

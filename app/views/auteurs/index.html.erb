@@ -15,12 +15,19 @@
 				<td><%= auteur.birthday %></td>
 				<td><%= link_to '<button type="button" class="btn btn-primary">
 				<strong>Afficher</strong></button>'.html_safe, auteur %></td>
+
 				<% if user_signed_in? %>
 					<td><%= link_to '<button type="button" class="btn btn-primary">
 					<strong>Modifier</strong></button>'.html_safe, edit_auteur_path(auteur) %></td>
 					<td><%= link_to '<button type="button" class="btn btn-primary">
 					<strong>Supprimer</strong></button>'.html_safe, auteur, method: :delete, data: { confirm: 'Etes-vous sûr ?' } %></td>
 				<% end %>
+
+				<td><%= link_to '<button type="button" class="btn btn-primary">
+				<strong>Modifier</strong></button>'.html_safe, edit_auteur_path(auteur) %></td>
+				<td><%= link_to '<button type="button" class="btn btn-primary">
+				<strong>Supprimer</strong></button>'.html_safe, auteur, method: :delete, data: { confirm: 'Etes-vous sûr ?' } %></td>
+
 			</tr>
 		<% end %>
 	</tbody>

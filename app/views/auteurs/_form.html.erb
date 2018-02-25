@@ -11,7 +11,14 @@
       <%= form.text_field :first_name, id: :auteur_first_name, class: "", style: "position:absolute; right:0;" %>
     </div>
 
+
     <br>
+
+  <div class="field">
+    <%= form.label :birthday, 'Date de naissance' %>
+    <%= form.date_field :birthday, id: :auteur_birthday, class: "", style: "position:absolute; right:0;" %>
+  </div>
+
 
     <div class="field">
       <%= form.label :last_name, 'Nom de famille' %>
@@ -20,9 +27,19 @@
 
     <br>
 
+
     <div class="field">
       <%= form.label :birthday, 'Date de naissance' %>
       <%= form.date_field :birthday, id: :auteur_birthday, class: "", style: "position:absolute; right:0;" %>
+
+      <hr>
+      
+      <%= link_to '<button type="button" class="btn btn-primary">
+      <strong>Retour</strong></button>'.html_safe, auteurs_path %>
+
+      <%= form.submit 'Enregistrer', class: "btn btn-success", style: "font-weight:bold" %>
+    
+
     </div>
 
     </div>

@@ -23,7 +23,7 @@
 	<%@auteur = Auteur.find(manga.auteur_id) %>
 
 			
-<<<<<<< HEAD
+
 	<div class="col-sm-4">
 			
 		<%= image_tag @image.url, alt: @image.name , style:"width: 26%; vertical-align: baseline;" %> 
@@ -42,7 +42,7 @@
 
 		<%= form_tag "/spaces/#{manga.id}", method: "patch" do %>
 		<input type="submit" class="btn btn-primary" value="Ajouter à mes favoris" style="font-weight:bold;" />
-=======
+
 		
 		<div class="manga">
 			<p>
@@ -63,9 +63,10 @@
 				<button type="button" class="btn btn-primary"><strong>Supprimer</strong></button>
 				'.html_safe, manga, method: :destroy, data: { confirm: 'Etes-vous sûr ?' } %></td>
 
+
 <%= form_tag "/spaces/#{manga.id}", method: "patch" do %>
   <input type="submit" value="Ajouter à mon espace" />
->>>>>>> Ajout d'un nouveau manga et affichage
+
  
 		<% end %>
 
@@ -75,7 +76,28 @@
 	<% end %>
 </tbody>
 
+
+	<div class="col-sm-4">
+			
+		<%= image_tag @image.url, alt: @image.name , style:"width: 26%; vertical-align: baseline;" %> 
+		<p style="display:inline-block;">
+			<%= manga.title %> <br>
+			<%= manga.title_traduction %> <br> 
+			Sortie le : <%= manga.realise_date %> <br>
+			Volumes : <%= manga.tome_number %> tomes <br>
+			Genre : <%= link_to @genre.name , @genre %> <br>
+			Ecrit par : <%= link_to @auteur.last_name , @auteur %> <br>
+			<%= link_to 'Afficher', manga %>
+			<%= link_to 'Supprimer', manga, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %>
+		</p>
+
+
+		<%= form_tag "/spaces/#{manga.id}", method: "patch" do %>
+		<input type="submit" class="btn btn-primary" value="Ajouter à mon espace" />
+ 
+
 		<% end %>
+
 	</tbody>
 	<hr>
 <p>
@@ -95,4 +117,11 @@
 
 </p>
 <% end %>
+
+
+	
+	</div>
+
+	<% end %>
+</tbody>
 
