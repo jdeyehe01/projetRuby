@@ -4,59 +4,49 @@
 	<% if user_signed_in? %>
 
 
-<p class="navbar-text pull-right">
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Editer le profil', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-
 </p>
 
 
 <h1>Liste des mangas</h1>
 
-
+<hr>
 <tbody>
 		
 <% @mangas.each do |manga| %>
-			<%@genre = Genre.find(manga.genre_id) %>
-			<%@image = Image.find(manga.image_id) %>
-			<%@auteur = Auteur.find(manga.auteur_id) %>
+	<%@genre = Genre.find(manga.genre_id) %>
+	<%@image = Image.find(manga.image_id) %>
+	<%@auteur = Auteur.find(manga.auteur_id) %>
 
 			
-		
-		<div class="manga">
-			<p>
-				<%= image_tag @image.url, alt: @image.name , style:"height: 7%; width: 7%;" %> 	
-				<%= manga.title %>
-				<%= manga.title_traduction %>
-				<%= manga.realise_date %>
-				<%= manga.tome_number %> tomes 
-				<%= link_to @genre.name , @genre %>
-				<%= link_to @auteur.first_name , @auteur %>
-				<td><%= link_to '
-				<button type="button" class="btn btn-primary"><strong>Afficher</strong></button>
-				'.html_safe, manga %></td>
-				<td><%= link_to '
-				<button type="button" class="btn btn-primary"><strong>Modifier</strong></button>
-				'.html_safe, edit_manga_path(manga) %></td>
-				<td><%= link_to '
-				<button type="button" class="btn btn-primary"><strong>Supprimer</strong></button>
-				'.html_safe, manga, method: :destroy, data: { confirm: 'Etes-vous sûr ?' } %></td>
+	<div class="col-sm-4">
+			
+		<%= image_tag @image.url, alt: @image.name , style:"width: 26%; vertical-align: baseline;" %> 
+		<p style="display:inline-block;">
+			<%= manga.title %> <br>
+			<%= manga.title_traduction %> <br> 
+			Sortie le : <%= manga.realise_date %> <br>
+			Volumes : <%= manga.tome_number %> tomes <br>
+			Genre : <%= link_to @genre.name , @genre %> <br>
+			Ecrit par : <%= link_to @auteur.last_name , @auteur %> <br>
+			<%= link_to 'Afficher', manga %> 
+			<% if user_signed_in? %>
+				| <%= link_to 'Supprimer', manga, method: :delete, data: {confirm: 'Etes-vous sûr ?'} %>
+			<% end %>
+		</p>
 
-<%= form_tag "/spaces/#{manga.id}", method: "patch" do %>
-  <input type="submit" value="Ajouter à mon espace" />
- 
-<% end %>
+		<%= form_tag "/spaces/#{manga.id}", method: "patch" do %>
+		<input type="submit" class="btn btn-primary" value="Ajouter à mes favoris" style="font-weight:bold;" />
+
+	</div>
 
 
- 	
-			</p>
-		</div>
+	<% end %>
+
 
 		<% end %>
 	</tbody>
-	<hr>
-<p>
+
+	<p>
 	<center>
 		<%= link_to '<button type="button" class="btn btn-success"><strong>Ajouter un manga</strong>
 		</button>'.html_safe, new_manga_path %>
@@ -73,3 +63,6 @@
 
 </p>
 <% end %>
+
+
+
